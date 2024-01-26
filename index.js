@@ -1,9 +1,9 @@
 
-
+let human;
 
 window.onload = async () => {
 const config = { backend: 'webgl', modelBasePath: 'models/' };
-const human = new Human.Human(); // create instance of Human
+human = new Human.Human(); // create instance of Human
 const outputCanvas = document.getElementById('canvas-id');
 let drawDebug = true;
 
@@ -28,4 +28,6 @@ outputCanvas.width = human.webcam.width;
 outputCanvas.height = human.webcam.height;
 human.video(human.webcam.element); // start detection loop which continously updates results
 drawResults(); // start draw loop
+
+sleepGameLoop();
 };
