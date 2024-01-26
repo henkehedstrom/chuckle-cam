@@ -6,6 +6,15 @@ const config = { backend: 'webgl', modelBasePath: 'models/' };
 const human = new Human.Human(); // create instance of Human
 const outputCanvas = document.getElementById('canvas-id');
 let drawDebug = true;
+let playerName = "Unknown name";
+
+function saveName()
+{
+  playerName = document.getElementById("userInput").value;
+  console.log(playerName);
+}
+
+document.getElementById("start_button").onclick = saveName;
 
 async function drawResults() {
   const interpolated = human.next(); // get smoothened result using last-known results
@@ -22,6 +31,8 @@ document.onkeypress = function (e) {
   drawDebug = !drawDebug
   console.log("switching debugdraw")
 };
+
+
 
 await human.webcam.start({ crop: true });
 outputCanvas.width = human.webcam.width;
