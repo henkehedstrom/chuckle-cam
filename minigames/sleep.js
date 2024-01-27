@@ -35,7 +35,7 @@ class SleepGame {
 		playSound("party-horn.wav");
 		playSound("confetti-pop.wav");
 		
-		setInterval(() => {
+		setTimeout(() => {
 			slides.goto("sleepEnd");
 
 			onGameComplete();
@@ -80,7 +80,7 @@ class SleepGame {
 		}
 
 		// 200 = 20s = WIN
-		if (this.closedEyes >= 200) {
+		if (this.closedEyes >= 20) {
 			this.hasWon = true;
 		}
 
