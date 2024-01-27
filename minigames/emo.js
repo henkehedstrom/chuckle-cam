@@ -2,7 +2,6 @@ class EmotionGame {
 	constructor() {
 		this.finished = false;
 		this.state = 0;
-		this.overlay = document.getElementById("overlay");
 		this.canvas = document.querySelector("#emoGame > canvas");
 		onresult = (r) => this.loop(r);
 	}
@@ -23,11 +22,15 @@ class EmotionGame {
 
 	end() {
 		console.log("Ending game");
+
 		slides.goto("emoEnd");
 		this.finished = true;
 		stopRecording("emo");
 		viewRecording("emo");
-		onGameComplete();
+
+		setTimeout(() => {
+			onGameComplete();
+		}, 3000);
 	}
 
 	changeState(nextState) {
@@ -43,7 +46,9 @@ class EmotionGame {
 				this.showOverlay("Show us your sad face");
 				break;
 			default:
-				this.end();
+				if (!this.finished) {
+					this.end();
+				}
 				break;
 		}
 	}
@@ -71,10 +76,6 @@ class EmotionGame {
 	}
 
 	showOverlay(text) {
-		let t = document.createElement("h1");
-		t.innerText = text;
-		this.overlay.innerHTML = "";
-		this.overlay.appendChild(t);
 	}
 
 	loop(result) {

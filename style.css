@@ -20,3 +20,13 @@ body {
 	width: 100%;
 	height: 100%;
 }
+
+#emoStart {
+	width: 700px;
+	font-size: 70px;
+}
+
+#emoEnd {
+	width: 400px;
+	font-size: 40px;
+}

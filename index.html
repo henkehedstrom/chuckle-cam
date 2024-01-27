@@ -10,8 +10,9 @@
 </head>
 <body>
 <div id="impress">
-    <div id="emoStart" class="step" data-x="-500" data-y="1000">
-        <h1>emo instructions</h1>
+    <div id="emoStart" class="step" data-x="-500" data-y="1000" data-width="800" data-scale="3">
+        <h1>This is the emo game</h1>
+        <p>Try to be as edgy as possible!</p>
     </div>
 
     <div id="emoGame" class="step" data-x="1000" data-y="1000" data-z="-1000" data-scale="2"
@@ -21,8 +22,9 @@
         <canvas width="1280" height="720" id="canvas-id"></canvas>
     </div>
 
-    <div id="emoEnd" class="step" data-x="2000" data-y="1000">
-        <h1>emo end</h1>
+    <div id="emoEnd" class="step" data-x="2000" data-y="1000"
+    data-rotate-z="90">
+        <h1>Good job, you were pretty happy!</h1>
     </div>
 
     <div id="sleepStart" class="step" data-x="3000" data-y="1000" data-z="-1000" data-scale="2" data-rotate-z="0">
@@ -35,7 +37,6 @@
     <div id="sleepEnd" class="step" data-x="4000" data-y="2200" data-z="-1000" data-scale="2" data-rotate-z="0">
         <h2>sleep end</h2>
     </div>
-    <div id="overlay"></div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@vladmandic/human/dist/human.js"></script>
