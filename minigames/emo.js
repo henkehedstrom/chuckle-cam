@@ -71,6 +71,11 @@ class EmotionGame {
 
 		if (this.currentScore > 5) {
 			console.log(`emotion ${emo} done!`);
+			confetti({
+				particleCount: 100,
+				spread: 70,
+				origin: { y: 0.6 },
+			});
 			this.changeState(this.state + 1);
 		}
 	}
