@@ -1,43 +1,43 @@
 let recording = false;
 let mediaRecorder;
-let recordedChunks;
 
-let recordingDictionary = new Object();
+let recordings = new Object();
+let recordedChunksDic = new Object();
 
 
 function startRecording(recordingName)
 {
   console.log("Starting the recording with name: " + recordingName);
   const stream = outputCanvas.captureStream(25);
-  recordingDictionary[recordingName] = new MediaRecorder(stream, {
+  recordings[recordingName] = new MediaRecorder(stream, {
       mimeType: 'video/webm;codecs=vp8',
                       ignoreMutedMedia: true
   });
-  recordedChunks = [];
-  recordingDictionary[recordingName].ondataavailable = e => {
+  recordedChunksDic[recordingName] = [];
+  recordings[recordingName].ondataavailable = e => {
       if(e.data.size > 0){
-          recordedChunks.push(e.data);
+        recordedChunksDic[recordingName].push(e.data);
       }
   };
-  recordingDictionary[recordingName].start();
+  recordings[recordingName].start();
 }
 
 function stopRecording(recordingName)
 {
     console.log("Stopping the recording with name " + recordingName);
-    recordingDictionary[recordingName].stop();
-  setTimeout(() => {
-    const blob = new Blob(recordedChunks, {
-        type: "video/webm"
-    });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("video");
-    a.src = url;
-    document.body.appendChild(a);
-},0);
+    recordings[recordingName].stop();
 }
 
 function viewRecording(recordingName)
 {
-    
+    setTimeout(() => {
+        const blob = new Blob(recordedChunksDic[recordingName], {
+            type: "video/webm"
+        });
+        const url = URL.createObjectURL(blob);
+        const video = document.createElement("video");
+        video.src = url;
+        video.id = recordingName;
+        document.body.appendChild(video);
+    },0);
 }

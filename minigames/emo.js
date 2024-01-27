@@ -27,6 +27,7 @@ class EmotionGame {
 		this.finished = true;
 		this.showOverlay("Finished");
 		stopRecording("emo");
+		viewRecording("emo");
 	}
 
 	changeState(nextState) {
