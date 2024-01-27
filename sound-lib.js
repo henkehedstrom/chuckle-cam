@@ -1,8 +1,13 @@
 var soundDict = {};
 var musicDict = {};
 var activeMusic;
+var soundOn = false;
 
 function playSound(fileName) {
+	if (!soundOn) {
+		return;
+	}
+
 	var audio = soundDict[fileName];
 	if (audio == null) {
 		soundDict[fileName] = new Audio("/sounds/" + fileName);
@@ -12,6 +17,10 @@ function playSound(fileName) {
 }
 
 function playMusic(fileName) {
+	if (!soundOn) {
+		return;
+	}
+
 	if (activeMusic != null) {
 		activeMusic.pause();
 		activeMusic.currentTime = 0;
@@ -23,4 +32,15 @@ function playMusic(fileName) {
 		audio = musicDict[fileName];
 	}
 	audio.play();
+}
+
+function stopMusic() {
+	if (!soundOn) {
+		return;
+	}
+
+	if (activeMusic != null) {
+		activeMusic.pause();
+		activeMusic.currentTime = 0;
+	}
 }
