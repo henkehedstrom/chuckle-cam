@@ -12,3 +12,9 @@ canvas {
 	margin:0 auto;
 	width: 100vw;
 }
+
+#overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}

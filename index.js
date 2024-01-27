@@ -1,33 +1,7 @@
 let human;
 let outputCanvas;
 let drawDebug = true;
-
-class EmotionGame {
-	constructor(human) {
-		this.human = human;
-		this.finished = false;
-	}
-
-	start() {
-		setTimeout(end, 10000);
-		loop();
-	}
-
-	end() {
-		this.finished = true;
-	}
-
-	loop() {
-		let result = human.result;
-		if (result.face.length > 0) {
-			console.log("Emotions: " + result.face[0].emotion);
-		}
-
-		if (!this.finished) {
-			setTimeout(loop, 30);
-		}
-	}
-}
+let onresult;
 
 
 async function drawResults() {
@@ -38,6 +12,16 @@ async function drawResults() {
 		human.draw.all(outputCanvas, interpolated); // draw the frame detection results
 	}
 	requestAnimationFrame(drawResults); // run draw loop
+}
+
+async function detectLoop() {
+	let result = await human.detect(human.webcam.element);
+
+	if (onresult) {
+		onresult(result);
+	}
+
+	requestAnimationFrame(detectLoop);
 }
 
 document.onkeypress = function (e) {
@@ -56,8 +40,11 @@ window.onload = async () => {
 	await human.webcam.start({ crop: false, width });
 	outputCanvas.width = human.webcam.width;
 	outputCanvas.height = human.webcam.height;
-	human.video(human.webcam.element); // start detection loop which continously updates results
 	drawResults(); // start draw loop
+	detectLoop();
 
 	sleepGameLoop();
+
+	let game = new EmotionGame(human);
+	game.start();
 };
