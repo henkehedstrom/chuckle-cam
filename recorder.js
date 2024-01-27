@@ -31,7 +31,7 @@ function stopRecording(recordingName)
 function viewRecording(recordingName)
 {
     setTimeout(() => {
-        blob = getBlob(recordingName)
+        let blob = getBlob(recordingName)
         const url = URL.createObjectURL(blob);
         const video = document.createElement("video");
         video.src = url;

@@ -18,6 +18,7 @@ class EmotionGame {
             outputCanvas = this.canvas;
             this.changeState(1)
             startRecording("emo");
+			startRecording("timelapse");
         }, 5000);
     }
 
@@ -77,7 +78,7 @@ class EmotionGame {
                 break;
         }
 
-        if (this.currentScore > 5) {
+        if (this.currentScore > 1) {
             console.log(`emotion ${emo} done!`);
 
             playSound("party-horn.wav");

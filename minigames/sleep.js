@@ -36,11 +36,30 @@ class SleepGame {
 		playSound("party-horn.wav");
 		playSound("confetti-pop.wav");
 		
-		setTimeout(() => {
-			slides.goto("sleepEnd");
+		// setTimeout(() => {
+		// 	slides.goto("sleepEnd");
+		
+		//  	onGameComplete();
+		//  }, 4000);
+		this.statsTest();
+	}
 
-			onGameComplete();
-		}, 4000);
+	statsTest()
+	{
+		stopRecording("timelapse");
+		setTimeout(() => {
+			let blob = getBlob("timelapse")
+			const url = URL.createObjectURL(blob);
+			const video = document.getElementById("timelapse");
+			video.src = url;
+			video.id = recordingName;
+			video.autoplay = true;
+		video.defaultPlaybackRate = 8.0; 
+		video.play();
+		},0);
+		slides.goto("statsTimelapse");
+		
+
 	}
 
 	warning() {
@@ -93,7 +112,7 @@ class SleepGame {
 		}
 
 		// 200 = 20s = WIN
-		if (this.closedEyes >= 20) {
+		if (this.closedEyes >= 1) {
 			this.hasWon = true;
 		}
 
