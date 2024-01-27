@@ -27,7 +27,6 @@ class EmotionGame {
         slides.goto("emoEnd");
         this.finished = true;
         stopRecording("emo");
-        viewRecording("emo");
 
         setTimeout(() => {
             onGameComplete();
