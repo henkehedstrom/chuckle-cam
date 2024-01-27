@@ -8,9 +8,11 @@ body {
 	height: 100vh;
 }
 
-canvas {
-	margin:0 auto;
-	width: 100vw;
+.container {
+	height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #overlay {
