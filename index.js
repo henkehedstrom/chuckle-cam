@@ -72,6 +72,9 @@ async function detectLoop() {
 window.onload = async () => {
 	let width = 1280;
 
+	slides = impress();
+	slides.init();
+
 	const config = { backend: 'webgl', modelBasePath: 'models/' };
 	human = new Human.Human(); // create instance of Human
 	outputCanvas = document.getElementById('canvas-id');
@@ -81,9 +84,6 @@ window.onload = async () => {
 	outputCanvas.height = human.webcam.height;
 	drawResults(); // start draw loop
 	detectLoop();
-
-	slides = impress();
-	slides.init();
 
 	onGameComplete();
 };

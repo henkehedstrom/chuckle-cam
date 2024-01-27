@@ -21,6 +21,21 @@ body {
 	height: 100%;
 }
 
+#sleepStart {
+	width: 700px;
+	font-size: 40px;
+}
+
+#sleepEnd {
+	width: 400px;
+	font-size: 40px;
+	opacity: 0;
+}
+
+.active, .past {
+	opacity: 1.0 !important;
+	animation: 0.5s ease !important;
+}
 #emoStart {
 	width: 1300px;
 	font-size: 70px;
@@ -29,6 +44,7 @@ body {
 #emoEnd {
 	width: 400px;
 	font-size: 40px;
+	opacity: 0;
 }
 
 .jelly {
