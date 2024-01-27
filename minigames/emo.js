@@ -45,6 +45,9 @@ class EmotionGame {
             case 2:
                 this.title.innerText = "Show us your sad face 😢";
                 break;
+            case 3:
+                this.title.innerText = "Get angry!!! 😡😠";
+                break;
             default:
                 if (!this.finished) {
                     this.end();
@@ -64,6 +67,11 @@ class EmotionGame {
                 break;
             case 2:
                 if (emo == "sad") {
+                    this.currentScore += score;
+                }
+                break;
+            case 3:
+                if (emo == "angry") {
                     this.currentScore += score;
                 }
                 break;
