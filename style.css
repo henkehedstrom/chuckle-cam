@@ -47,6 +47,28 @@ body {
 	opacity: 0;
 }
 
+#sleepStart {
+	width: 800px;
+	font-size: 90px;
+}
+
+#sleepStart2 {
+	width: 700px;
+	font-size: 70px;
+	font-family: "Caveat";
+}
+
+#sleepStart3 {
+	width: 700px;
+	font-size: 70px;
+	font-family: "Caveat";
+}
+
+#sleepEnd {
+	width: 700px;
+	font-size: 70px;
+}
+
 .jelly {
 	animation: jelly 0.5s;
 }
