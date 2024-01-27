@@ -1,8 +1,10 @@
 let human;
+let slides;
 let outputCanvas;
 let drawDebug = true;
 let onresult;
 let playerName = "Unknown name";
+
 
 function saveName()
 {
@@ -20,7 +22,7 @@ if (document.getElementById("start_button"))
 document.addEventListener('keydown', function(event) {
   switch(event.code)
   {
-    case 'KeyE':2
+    case 'KeyE':
       switchDebugDrawing();
       break;
     case 'KeyA':
@@ -80,6 +82,11 @@ window.onload = async () => {
 
 	sleepGameLoop();
 
-	let game = new EmotionGame(human);
+	slides = impress();
+	slides.init();
+
+	let game = new EmotionGame();
 	game.start();
+
+
 };

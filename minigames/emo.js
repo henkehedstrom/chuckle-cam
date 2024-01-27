@@ -1,25 +1,30 @@
 class EmotionGame {
-	constructor(human) {
-		this.human = human;
+	constructor() {
 		this.finished = false;
 		this.state = 0;
 		this.overlay = document.getElementById("overlay");
+		this.canvas = document.querySelector("#emoGame > canvas");
 		onresult = (r) => this.loop(r);
 	}
 
 	start() {
-		console.log("Starting game");
-		// setTimeout(() => this.end(), 10000);
-		// this.loop();
-
-		this.changeState(0);
-		// setTimeout(() => this.changeState(), 5000);
+		slides.goto("emoStart");
 
 		startRecording();
+
+		setTimeout(() => {
+			console.log("Starting game");
+
+			slides.goto("emoGame");
+			outputCanvas = this.canvas;
+			this.changeState(1)
+			startRecording();
+		}, 5000);
 	}
 
 	end() {
 		console.log("Ending game");
+		slides.goto("emoEnd");
 		this.finished = true;
 		this.showOverlay("Finished");
 		stopRecording();
@@ -30,9 +35,11 @@ class EmotionGame {
 		this.currentScore = 0;
 		switch (this.state) {
 			case 0:
-				this.showOverlay("Show us your happy face");
 				break;
 			case 1:
+				this.showOverlay("Show us your happy face");
+				break;
+			case 2:
 				this.showOverlay("Show us your sad face");
 				break;
 			default:
@@ -45,12 +52,12 @@ class EmotionGame {
 		// console.log(`${emo}: ${score}`);
 
 		switch (this.state) {
-			case 0:
+			case 1:
 				if (emo == "happy") {
 					this.currentScore += score;
 				}
 				break;
-			case 1:
+			case 2:
 				if (emo == "sad") {
 					this.currentScore += score;
 				}
