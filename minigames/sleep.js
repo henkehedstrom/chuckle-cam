@@ -19,6 +19,14 @@ class SleepGame {
 	}
 
 	end() {
+		confetti({
+			particleCount: 100,
+			spread: 70,
+			origin: { y: 0.6 },
+		});
+		playSound("party-horn.wav");
+		playSound("confetti-pop.wav");
+		
 		setInterval(() => {
 			slides.goto("sleepEnd");
 

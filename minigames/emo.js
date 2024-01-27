@@ -1,88 +1,105 @@
 class EmotionGame {
-	constructor() {
-		this.finished = false;
-		this.state = 0;
-		this.canvas = document.querySelector("#emoGame > canvas");
-		onresult = (r) => this.loop(r);
-	}
+    constructor() {
+        this.finished = false;
+        this.state = 0;
+        this.canvas = document.querySelector("#emoGame > canvas");
+        this.title = document.querySelector("#emoGame > h1");
+        onresult = (r) => this.loop(r);
+    }
 
-	start() {
-		slides.goto("emoStart");
+    start() {
+        slides.goto("emoStart");
 
+        setTimeout(() => {
+            console.log("Starting game");
 
-		setTimeout(() => {
-			console.log("Starting game");
+            slides.goto("emoGame");
+            this.jelly();
+            outputCanvas = this.canvas;
+            this.changeState(1)
+            startRecording("emo");
+        }, 5000);
+    }
 
-			slides.goto("emoGame");
-			outputCanvas = this.canvas;
-			this.changeState(1)
-			startRecording("emo");
-		}, 5000);
-	}
+    end() {
+        console.log("Ending game");
 
-	end() {
-		console.log("Ending game");
+        slides.goto("emoEnd");
+        this.finished = true;
+        stopRecording("emo");
+        viewRecording("emo");
 
-		slides.goto("emoEnd");
-		this.finished = true;
-		stopRecording("emo");
-		viewRecording("emo");
+        setTimeout(() => {
+            onGameComplete();
+        }, 3000);
+    }
 
-		setTimeout(() => {
-			onGameComplete();
-		}, 3000);
-	}
+    changeState(nextState) {
+        this.state = nextState;
+        this.currentScore = 0;
+        switch (this.state) {
+            case 0:
+                break;
+            case 1:
+                this.title.innerText = "Show us your happy face 😹";
+                break;
+            case 2:
+                this.title.innerText = "Show us your sad face 😢";
+                break;
+            default:
+                if (!this.finished) {
+                    this.end();
+                }
+                break;
+        }
+    }
 
-	changeState(nextState) {
-		this.state = nextState;
-		this.currentScore = 0;
-		switch (this.state) {
-			case 0:
-				break;
-			case 1:
-				this.showOverlay("Show us your happy face");
-				break;
-			case 2:
-				this.showOverlay("Show us your sad face");
-				break;
-			default:
-				if (!this.finished) {
-					this.end();
-				}
-				break;
-		}
-	}
+    emotion(emo, score) {
+        // console.log(`${emo}: ${score}`);
 
-	emotion(emo, score) {
-		// console.log(`${emo}: ${score}`);
+        switch (this.state) {
+            case 1:
+                if (emo == "happy") {
+                    this.currentScore += score;
+                }
+                break;
+            case 2:
+                if (emo == "sad") {
+                    this.currentScore += score;
+                }
+                break;
+        }
 
-		switch (this.state) {
-			case 1:
-				if (emo == "happy") {
-					this.currentScore += score;
-				}
-				break;
-			case 2:
-				if (emo == "sad") {
-					this.currentScore += score;
-				}
-				break;
-		}
+        if (this.currentScore > 5) {
+            console.log(`emotion ${emo} done!`);
 
-		if (this.currentScore > 5) {
-			console.log(`emotion ${emo} done!`);
-			this.changeState(this.state + 1);
-		}
-	}
+            playSound("party-horn.wav");
+            playSound("confetti-pop.wav");
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: {y: 0.6},
+            });
+            this.changeState(this.state + 1);
+        }
+    }
 
-	showOverlay(text) {
-	}
+    jelly() {
+        this.canvas.classList.toggle("jelly", !this.canvas.classList.contains("jelly"));
 
-	loop(result) {
-		if (result.face.length > 0) {
-			result.face[0].emotion.forEach((e) => {
-				this.emotion(e.emotion, e.score);
-			});
-		}
-	}
+        if (!this.finished) {
+            setTimeout(() => this.jelly(), Math.random() * 3000 + 2000);
+        }
+    }
+
+    showOverlay(text) {
+    }
+
+    loop(result) {
+        if (result.face.length > 0) {
+            result.face[0].emotion.forEach((e) => {
+                this.emotion(e.emotion, e.score);
+            });
+        }
+    }
 }
