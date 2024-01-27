@@ -19,7 +19,7 @@ if (document.getElementById("start_button"))
 document.addEventListener('keydown', function(event) {
   switch(event.code)
   {
-    case 'KeyE':
+    case 'KeyE':2
       switchDebugDrawing();
       break;
     case 'KeyA':
@@ -44,7 +44,6 @@ function takePicture()
   console.log(image_data_url);
 }
 
-
 async function drawResults() {
 	const interpolated = human.next(); // get smoothened result using last-known results
 	human.draw.canvas(human.webcam.element, outputCanvas); // draw current webcam frame
@@ -64,12 +63,6 @@ async function detectLoop() {
 
 	requestAnimationFrame(detectLoop);
 }
-
-// document.onkeypress = function (e) {
-// 	e = e || window.event;
-// 	drawDebug = !drawDebug
-// 	console.log("switching debugdraw")
-// };
 
 window.onload = async () => {
 	let width = 1280;
