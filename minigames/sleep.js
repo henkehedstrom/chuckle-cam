@@ -12,7 +12,7 @@ class SleepGame {
 		slides.goto("sleepStart");
 
 		setTimeout(() => {
-			slides.goto("sleepStart");
+			slides.goto("sleepGame");
 			outputCanvas = this.canvas;
 			this.loop();
 		}, 2000);
