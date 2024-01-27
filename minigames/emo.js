@@ -3,6 +3,7 @@ class EmotionGame {
         this.finished = false;
         this.state = 0;
         this.canvas = document.querySelector("#emoGame > canvas");
+        this.title = document.querySelector("#emoGame > h1");
         onresult = (r) => this.loop(r);
     }
 
@@ -40,10 +41,10 @@ class EmotionGame {
             case 0:
                 break;
             case 1:
-                this.showOverlay("Show us your happy face");
+                this.title.innerText = "Show us your happy face 😹";
                 break;
             case 2:
-                this.showOverlay("Show us your sad face");
+                this.title.innerText = "Show us your sad face 😢";
                 break;
             default:
                 if (!this.finished) {
