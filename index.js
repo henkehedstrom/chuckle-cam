@@ -27,6 +27,8 @@ document.addEventListener('keydown', function(event) {
 			break;
 		case 'KeyA':
 			takePicture();
+			playSound("party-horn.wav");
+			playSound("confetti-pop.wav");
 			break;
 		default:
 			break;
