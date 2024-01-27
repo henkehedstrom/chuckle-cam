@@ -4,6 +4,10 @@ class EmotionGame {
         this.state = 0;
         this.canvas = document.querySelector("#emoCanvas");
         this.title = document.querySelector("#emoGame > h1");
+		this.canvasOwner = document.querySelector("#emoFrame");
+		this.placeholder = document.querySelector("#emoCanvasPlaceHolder");
+
+
         onresult = (r) => this.loop(r);
     }
 
@@ -15,7 +19,8 @@ class EmotionGame {
 
             slides.goto("emoGame");
             this.jelly();
-            outputCanvas = this.canvas;
+			this.canvasOwner.appendChild(outputCanvas);
+			this.canvasOwner.removeChild(this.placeholder)
             this.changeState(1)
             startRecording("emo");
 			startRecording("timelapse");
@@ -93,7 +98,7 @@ class EmotionGame {
     }
 
     jelly() {
-        this.canvas.classList.toggle("jelly", !this.canvas.classList.contains("jelly"));
+        //this.canvas.classList.toggle("jelly", !this.canvas.classList.contains("jelly"));
 
         if (!this.finished) {
             setTimeout(() => this.jelly(), Math.random() * 3000 + 2000);

@@ -6,6 +6,8 @@ class SleepGame {
 		this.hasWon = false;
 		this.shouldBreak = false;
 		this.canvas = document.querySelector("#sleepGame > canvas");
+		this.placeholder = document.querySelector("#sleepCanvasPlaceholder");
+		this.canvasOwner = document.querySelector("#sleepGame");
 	}
 
 	start() {
@@ -21,7 +23,8 @@ class SleepGame {
 
 		setTimeout(() => {
 			slides.goto("sleepGame");
-			outputCanvas = this.canvas;
+			this.canvasOwner.appendChild(outputCanvas);
+			this.canvasOwner.removeChild(this.placeholder);
 			playMusic("lo-fi.mp3");
 			this.loop();
 		}, 5500);
@@ -36,28 +39,28 @@ class SleepGame {
 		playSound("party-horn.wav");
 		playSound("confetti-pop.wav");
 		
-		// setTimeout(() => {
-		// 	slides.goto("sleepEnd");
+		 setTimeout(() => {
+		 	slides.goto("sleepEnd");
 		
-		//  	onGameComplete();
-		//  }, 4000);
+		  	onGameComplete();
+		  }, 4000);
 		this.statsTest();
 	}
 
 	statsTest()
 	{
-		stopRecording("timelapse");
-		setTimeout(() => {
-			let blob = getBlob("timelapse")
-			const url = URL.createObjectURL(blob);
-			const video = document.getElementById("timelapse");
-			video.src = url;
-			video.id = recordingName;
-			video.autoplay = true;
-		video.defaultPlaybackRate = 8.0; 
-		video.play();
-		},0);
-		slides.goto("statsTimelapse");
+
+		// stopRecording("timelapse");
+		// setTimeout(() => {
+		// 	let blob = getBlob("timelapse")
+		// 	const url = URL.createObjectURL(blob);
+		// 	const video = document.getElementById("timelapse");
+		// 	video.src = url;
+		// 	video.autoplay = true;
+		// video.defaultPlaybackRate = 8.0; 
+		// video.play();
+		// },0);
+		// slides.goto("statsTimelapse");
 		
 
 	}
@@ -112,7 +115,7 @@ class SleepGame {
 		}
 
 		// 200 = 20s = WIN
-		if (this.closedEyes >= 1) {
+		if (this.closedEyes >= 2) {
 			this.hasWon = true;
 		}
 

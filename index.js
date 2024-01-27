@@ -95,6 +95,7 @@ let currentGameIndex = -1; // Start at -1 since we increas it in onGameComplete
 let minigames = [
 	new EmotionGame(),
 	new SleepGame(),
+	new Stats()
 ]
 
 let currentMinigame;
