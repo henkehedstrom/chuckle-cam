@@ -41,6 +41,16 @@ body {
 	font-size: 70px;
 }
 
+#happiness {
+	font-family: "Luckiest Guy";
+	color: yellow;
+}
+
+#anger {
+	font-family: "Creepster";
+	color: red;
+}
+
 #emoEnd {
 	width: 400px;
 	font-size: 40px;
@@ -62,6 +72,13 @@ body {
 	width: 700px;
 	font-size: 70px;
 	font-family: "Caveat";
+}
+
+#sleepWarning {
+	width: 800px;
+	font-size: 52px;
+	font-family: "Press Start P2";
+	color: red;
 }
 
 #sleepEnd {

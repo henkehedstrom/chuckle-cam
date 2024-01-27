@@ -22,8 +22,9 @@ class SleepGame {
 		setTimeout(() => {
 			slides.goto("sleepGame");
 			outputCanvas = this.canvas;
+			playMusic("lo-fi.mp3");
 			this.loop();
-		}, 4500);
+		}, 5500);
 	}
 
 	end() {
@@ -37,6 +38,17 @@ class SleepGame {
 		
 		setTimeout(() => {
 			slides.goto("sleepEnd");
+
+			onGameComplete();
+		}, 4000);
+	}
+
+	warning() {
+		playSound("wambulance.mp3");
+		slides.goto("sleepWarning");
+
+		setInterval(() => {
+			slides.goto("sleepGame");
 
 			onGameComplete();
 		}, 4000);
@@ -77,6 +89,7 @@ class SleepGame {
 		if (didPeek) {
 			console.log("No peeking!!! >:(");
 			this.hasSleepMinigameStarted = false;
+			this.warning();
 		}
 
 		// 200 = 20s = WIN
