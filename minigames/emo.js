@@ -10,7 +10,6 @@ class EmotionGame {
 	start() {
 		slides.goto("emoStart");
 
-		startRecording();
 
 		setTimeout(() => {
 			console.log("Starting game");
@@ -18,7 +17,7 @@ class EmotionGame {
 			slides.goto("emoGame");
 			outputCanvas = this.canvas;
 			this.changeState(1)
-			startRecording();
+			startRecording("emo");
 		}, 5000);
 	}
 
@@ -27,7 +26,7 @@ class EmotionGame {
 		slides.goto("emoEnd");
 		this.finished = true;
 		this.showOverlay("Finished");
-		stopRecording();
+		stopRecording("emo");
 	}
 
 	changeState(nextState) {

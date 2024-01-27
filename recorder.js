@@ -5,27 +5,27 @@ let recordedChunks;
 let recordingDictionary = new Object();
 
 
-function startRecording()
+function startRecording(recordingName)
 {
-  console.log("Starting the recording");
+  console.log("Starting the recording with name: " + recordingName);
   const stream = outputCanvas.captureStream(25);
-  mediaRecorder = new MediaRecorder(stream, {
+  recordingDictionary[recordingName] = new MediaRecorder(stream, {
       mimeType: 'video/webm;codecs=vp9',
                       ignoreMutedMedia: true
   });
   recordedChunks = [];
-  mediaRecorder.ondataavailable = e => {
+  recordingDictionary[recordingName].ondataavailable = e => {
       if(e.data.size > 0){
           recordedChunks.push(e.data);
       }
   };
-  mediaRecorder.start();
+  recordingDictionary[recordingName].start();
 }
 
-function stopRecording()
+function stopRecording(recordingName)
 {
-    console.log("Stopping the recording and spawning video");
-    mediaRecorder.stop();
+    console.log("Stopping the recording with name " + recordingName);
+    recordingDictionary[recordingName].stop();
   setTimeout(() => {
     const blob = new Blob(recordedChunks, {
         type: "video/webm"
@@ -35,4 +35,9 @@ function stopRecording()
     a.src = url;
     document.body.appendChild(a);
 },0);
+}
+
+function viewRecording(recordingName)
+{
+    
 }
