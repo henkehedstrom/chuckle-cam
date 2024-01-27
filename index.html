@@ -14,6 +14,24 @@
 </head>
 <body>
 <div id="impress">
+    <div id="nodStart" class="step" data-x="-4750" data-y="1000" data-width="800" data-scale="2.9">
+        <h1>Tutorial, you will look around a bit...</h1>
+        <p>Look in the direction of the arrow </p>
+    </div>
+
+    <div id="nodGame" class="step" data-x="-4750" data-y="2000" data-z="-1000" data-scale="2"
+         data-rotate-z="90">
+        <h1 id="emoTitle"></h1>
+
+        <canvas width="1280" height="720" id="canvas-id"></canvas>
+    </div>
+
+    <div id="nodEnd" class="step" data-x="-2000" data-y="3000"
+         data-rotate-z="90">
+        <h1>Good job, you were pretty happy!</h1>
+    </div>
+
+
     <div id="emoStart" class="step" data-x="-1750" data-y="1000" data-width="800" data-scale="2.9">
         <h1>Show your <span id="happiness">happiness</span> and <span id="anger">anger!</span></h1>
         <p>Try and display the emotion shown on the screen</p>
@@ -23,7 +41,9 @@
          data-rotate-z="90">
         <h1 id="emoTitle"></h1>
 
-        <canvas width="1280" height="720" id="canvas-id"></canvas>
+        <div class="frame-outer">
+            <canvas class="frame-inner" width="1280" height="720" id="emoCanvas"></canvas>
+        </div>
     </div>
 
     <div id="emoEnd" class="step" data-x="2000" data-y="1000"
@@ -50,6 +70,8 @@
         <h2>Wow, you slept like a bear!</h2>
         <p>You only peeked 234 times</p>
     </div>
+
+
 </div>
 
 <script src="sound-lib.js"></script>

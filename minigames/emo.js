@@ -2,7 +2,7 @@ class EmotionGame {
     constructor() {
         this.finished = false;
         this.state = 0;
-        this.canvas = document.querySelector("#emoGame > canvas");
+        this.canvas = document.querySelector("#emoCanvas");
         this.title = document.querySelector("#emoGame > h1");
         onresult = (r) => this.loop(r);
     }
