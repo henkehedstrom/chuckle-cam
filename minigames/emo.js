@@ -25,8 +25,8 @@ class EmotionGame {
 		console.log("Ending game");
 		slides.goto("emoEnd");
 		this.finished = true;
-		this.showOverlay("Finished");
 		stopRecording("emo");
+		onGameComplete();
 	}
 
 	changeState(nextState) {

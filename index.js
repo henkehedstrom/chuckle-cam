@@ -16,35 +16,35 @@ function saveName()
 let start_button = document.getElementById("start_button");
 if (document.getElementById("start_button"))
 {
-  start_button.onclick = saveName;
+	start_button.onclick = saveName;
 }
 
 document.addEventListener('keydown', function(event) {
-  switch(event.code)
-  {
-    case 'KeyE':
-      switchDebugDrawing();
-      break;
-    case 'KeyA':
-      takePicture();
-      break;
-    default:
-      break;
-  }
-  
+	switch(event.code)
+	{
+		case 'KeyE':
+			switchDebugDrawing();
+			break;
+		case 'KeyA':
+			takePicture();
+			break;
+		default:
+			break;
+	}
+
 });
 
 function switchDebugDrawing()
 {
-  drawDebug = !drawDebug
-  console.log("switching debugdraw")
+	drawDebug = !drawDebug
+	console.log("switching debugdraw")
 }
 
 
 function takePicture()
 {
-  let image_data_url = outputCanvas.toDataURL('image/jpeg');
-  console.log(image_data_url);
+	let image_data_url = outputCanvas.toDataURL('image/jpeg');
+	console.log(image_data_url);
 }
 
 async function drawResults() {
@@ -80,13 +80,29 @@ window.onload = async () => {
 	drawResults(); // start draw loop
 	detectLoop();
 
-	sleepGameLoop();
-
 	slides = impress();
 	slides.init();
 
-	let game = new EmotionGame();
-	game.start();
-
-
+	onGameComplete();
 };
+
+let currentGameIndex = -1; // Start at -1 since we increas it in onGameComplete
+
+// To add a minigame add an instance of your minigame class in minigames
+// A minigame class MUST implement start() and run onGameComplete() when finished
+let minigames = [
+	new SleepGame(),
+	new EmotionGame(),
+]
+
+let currentMinigame;
+function onGameComplete() {
+	currentGameIndex++;
+
+	if (currentGameIndex >= minigames.length) {
+		return;
+	}
+
+	currentMinigame = minigames[currentGameIndex];
+	currentMinigame.start();
+}
