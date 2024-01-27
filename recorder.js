@@ -31,13 +31,19 @@ function stopRecording(recordingName)
 function viewRecording(recordingName)
 {
     setTimeout(() => {
-        const blob = new Blob(recordedChunksDic[recordingName], {
-            type: "video/webm"
-        });
+        blob = getBlob(recordingName)
         const url = URL.createObjectURL(blob);
         const video = document.createElement("video");
         video.src = url;
         video.id = recordingName;
         document.body.appendChild(video);
     },0);
+}
+
+function getBlob(recordingName)
+{
+    const blob = new Blob(recordedChunksDic[recordingName], {
+        type: "video/webm"
+    });
+    return blob;
 }
