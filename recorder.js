@@ -10,7 +10,7 @@ function startRecording(recordingName)
   console.log("Starting the recording with name: " + recordingName);
   const stream = outputCanvas.captureStream(25);
   recordingDictionary[recordingName] = new MediaRecorder(stream, {
-      mimeType: 'video/webm;codecs=vp9',
+      mimeType: 'video/webm;codecs=vp8',
                       ignoreMutedMedia: true
   });
   recordedChunks = [];
