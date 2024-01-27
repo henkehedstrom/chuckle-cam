@@ -14,11 +14,15 @@ class EmotionGame {
 
 		this.changeState(0);
 		// setTimeout(() => this.changeState(), 5000);
+
+		startRecording();
 	}
 
 	end() {
 		console.log("Ending game");
 		this.finished = true;
+		this.showOverlay("Finished");
+		stopRecording();
 	}
 
 	changeState(nextState) {

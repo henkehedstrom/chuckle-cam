@@ -10,6 +10,7 @@ function saveName()
   console.log(playerName);
 }
 
+
 let start_button = document.getElementById("start_button");
 if (document.getElementById("start_button"))
 {
