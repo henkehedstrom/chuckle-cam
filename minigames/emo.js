@@ -9,11 +9,11 @@ class EmotionGame {
 	start() {
 		slides.goto("emoStart");
 
-
 		setTimeout(() => {
 			console.log("Starting game");
 
 			slides.goto("emoGame");
+			this.jelly();
 			outputCanvas = this.canvas;
 			this.changeState(1)
 			startRecording("emo");
@@ -77,6 +77,14 @@ class EmotionGame {
 				origin: { y: 0.6 },
 			});
 			this.changeState(this.state + 1);
+		}
+	}
+
+	jelly() {
+		this.canvas.classList.toggle("jelly", !this.canvas.classList.contains("jelly"));
+
+		if (!this.finished) {
+			setTimeout(() => this.jelly(), Math.random() * 3000 + 2000);
 		}
 	}
 
