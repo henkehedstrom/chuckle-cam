@@ -4,10 +4,11 @@ class EmotionGame {
         this.state = 0;
         this.canvas = document.querySelector("#emoCanvas");
         this.title = document.querySelector("#emoGame > h1");
-        onresult = (r) => this.loop(r);
     }
 
     start() {
+        onresult = (r) => this.loop(r);
+
         slides.goto("emoStart");
 
         setTimeout(() => {

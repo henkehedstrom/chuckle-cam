@@ -39,6 +39,11 @@ body {
 	opacity: 1.0 !important;
 	animation: 0.5s ease !important;
 }
+
+#nodStart {
+	width: 500px;
+	font-size: 40px;
+}
 #emoStart {
 	width: 1300px;
 	font-size: 70px;
