@@ -14,21 +14,21 @@
 </head>
 <body>
 <div id="impress">
-    <div id="nodStart" class="step" data-x="-4750" data-y="1000" data-width="800" data-scale="2.9">
+    <div id="nodStart" class="step" data-x="-5750" data-y="500" data-width="800" data-scale="2.9" data-rotate-z="180">
         <h1>Tutorial, you will look around a bit...</h1>
         <p>Look in the direction of the arrow </p>
     </div>
 
     <div id="nodGame" class="step" data-x="-4750" data-y="2000" data-z="-1000" data-scale="2"
          data-rotate-z="90">
-        <h1 id="emoTitle"></h1>
+        <h1 id="nodTitle"></h1>
 
-        <canvas width="1280" height="720" id="canvas-id"></canvas>
+        <canvas width="1280" height="720" id="nodCanvas"></canvas>
     </div>
 
-    <div id="nodEnd" class="step" data-x="-2000" data-y="3000"
+    <div id="nodEnd" class="step" data-x="-5000" data-y="3000"
          data-rotate-z="90">
-        <h1>Good job, you were pretty happy!</h1>
+        <h1>Good job, you can follow instructions!</h1>
     </div>
 
 
@@ -63,6 +63,12 @@
     <div id="sleepWarning" class="step" data-x="5500" data-y="5000" data-z="-1000" data-scale="2" data-rotate-z="0">
         <h2>Don't peek!</h2>
     </div>
+    <div id="sleepTooBad1" class="step" data-x="8000" data-y="2000" data-z="-1000" data-scale="2" data-rotate-z="0">
+        <h2>You seem to be struggling</h2>
+    </div>
+    <div id="sleepTooBad2" class="step" data-x="8700" data-y="1000" data-z="-1000" data-scale="2" data-rotate-z="-90">
+        <h2>Let's move on</h2>
+    </div>
     <div id="sleepGame" class="step" data-x="5500" data-y="3000" data-z="-1000" data-scale="2" data-rotate-z="0">
         <canvas width="1280" height="720" id="sleepCanvasPlaceholder" class="canvas"></canvas>
     </div>
@@ -93,6 +99,7 @@
 <script src="minigames/sleep.js"></script>
 <script src="minigames/emo.js"></script>
 <script src="minigames/stats.js"></script>
+<script src="minigames/nod.js"></script>
 <script src="recorder.js"></script>
 <script src="index.js"></script>
 </body>

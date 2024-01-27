@@ -12,6 +12,8 @@ class EmotionGame {
     }
 
     start() {
+        onresult = (r) => this.loop(r);
+
         slides.goto("emoStart");
 
         setTimeout(() => {

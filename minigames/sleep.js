@@ -5,6 +5,8 @@ class SleepGame {
 		this.hasSleepMinigameStarted = false;
 		this.hasWon = false;
 		this.shouldBreak = false;
+		this.warnings = 0;
+		this.trueEnding = true;
 		this.canvas = document.querySelector("#sleepGame > canvas");
 		this.placeholder = document.querySelector("#sleepCanvasPlaceholder");
 		this.canvasOwner = document.querySelector("#sleepGame");
@@ -38,6 +40,7 @@ class SleepGame {
 		});
 		playSound("party-horn.wav");
 		playSound("confetti-pop.wav");
+		stopMusic();
 		
 		 setTimeout(() => {
 		 	slides.goto("sleepEnd");
@@ -65,15 +68,37 @@ class SleepGame {
 
 	}
 
+	moveOn() {
+		this.trueEnding = false;
+		this.shouldBreak = true;
+		stopMusic();
+
+		slides.goto("sleepTooBad1");
+		
+		setTimeout(() => {
+			slides.goto("sleepTooBad2");
+		}, 2000);
+
+		setTimeout(() => {
+			onGameComplete();
+		}, 4000);
+	}
+
 	warning() {
+		this.warnings++;
+		if (this.warnings >= 2) {
+			this.moveOn();
+			return;
+		}
+		playSound("record-scratch.flac");
+		stopMusic();
 		playSound("wambulance.mp3");
 		slides.goto("sleepWarning");
 
 		setInterval(() => {
 			slides.goto("sleepGame");
-
-			onGameComplete();
-		}, 4000);
+			playMusic("lo-fi.mp3");
+		}, 2500);
 	}
 
 	isEyesClosed(result) {
@@ -115,7 +140,7 @@ class SleepGame {
 		}
 
 		// 200 = 20s = WIN
-		if (this.closedEyes >= 2) {
+		if (this.closedEyes >= 200) {
 			this.hasWon = true;
 		}
 
@@ -126,7 +151,9 @@ class SleepGame {
 		}
 
 		if (this.shouldBreak) {
-			this.end();
+			if (this.trueEnding) {
+				this.end();
+			}
 		} else {
 			setTimeout(() => this.loop(), 10);
 		}

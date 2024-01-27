@@ -77,7 +77,10 @@ window.onload = async () => {
 
 	const config = { backend: 'webgl', modelBasePath: 'models/' };
 	human = new Human.Human(); // create instance of Human
-	outputCanvas = document.getElementById('canvas-id');
+	//outputCanvas = document.getElementById('canvas-id');
+
+	onGameComplete();
+
 
 	await human.webcam.start({ crop: false, width });
 	outputCanvas.width = human.webcam.width;
@@ -85,7 +88,6 @@ window.onload = async () => {
 	drawResults(); // start draw loop
 	detectLoop();
 
-	onGameComplete();
 };
 
 let currentGameIndex = -1; // Start at -1 since we increas it in onGameComplete
@@ -93,6 +95,7 @@ let currentGameIndex = -1; // Start at -1 since we increas it in onGameComplete
 // To add a minigame add an instance of your minigame class in minigames
 // A minigame class MUST implement start() and run onGameComplete() when finished
 let minigames = [
+	new NodGame(),
 	new EmotionGame(),
 	new SleepGame(),
 	new Stats()
