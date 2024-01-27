@@ -5,14 +5,25 @@ class SleepGame {
 		this.hasSleepMinigameStarted = false;
 		this.hasWon = false;
 		this.shouldBreak = false;
+		this.canvas = document.querySelector("#sleepGame > canvas");
 	}
 
 	start() {
-		this.loop();
+		slides.goto("sleepStart");
+
+		setTimeout(() => {
+			slides.goto("sleepStart");
+			outputCanvas = this.canvas;
+			this.loop();
+		}, 2000);
 	}
 
 	end() {
-		onGameComplete();
+		setInterval(() => {
+			slides.goto("sleepEnd");
+
+			onGameComplete();
+		}, 4000);
 	}
 
 	isEyesClosed(result) {
@@ -26,7 +37,7 @@ class SleepGame {
 		var result = human.result;
 		var didPeek = false;
 
-		const openEyesLean = 5;
+		const openEyesLean = 50;
 		this.openEyes = openEyesLean;
 		if (this.isEyesClosed(result)) {
 			this.closedEyes++;

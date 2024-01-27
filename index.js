@@ -91,8 +91,8 @@ let currentGameIndex = -1; // Start at -1 since we increas it in onGameComplete
 // To add a minigame add an instance of your minigame class in minigames
 // A minigame class MUST implement start() and run onGameComplete() when finished
 let minigames = [
-	new SleepGame(),
 	new EmotionGame(),
+	new SleepGame(),
 ]
 
 let currentMinigame;
