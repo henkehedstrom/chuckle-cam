@@ -7,7 +7,7 @@ class Stats {
 	}
 
 	start() {
-		slides.goto("statsStart");
+		GoTo("statsStart");
         console.log("eating");
         stopRecording("timelapse");
 
@@ -21,14 +21,14 @@ class Stats {
 		    video.defaultPlaybackRate = 8.0; 
 		    video.play();
 		    },0);
-		slides.goto("statsTimelapse");
+		GoTo("statsTimelapse");
 			this.loop();
 		}, 2000);
 	}
 
 	end() {
 		setTimeout(() => {
-			slides.goto("statsEnd");
+			GoTo("statsEnd");
 
 			onGameComplete();
 		}, 50000);
