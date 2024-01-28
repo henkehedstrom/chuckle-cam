@@ -6,6 +6,7 @@ class NodGame {
         this.instructions = [
             "up", "down", "left", "right",
         ]
+        this.hasGivenTip = true;
     }
 
     setTargetDirection(dir) {
@@ -77,7 +78,13 @@ class NodGame {
         if (directions.indexOf(this.targetDir)) {
             this.lookedFor = 0;
         } else {
+            this.hasGivenTip = false;
             this.lookedFor += (now - this.lastLoop);
+        }
+
+        if (result.face.length === 0 && !this.hasGivenTip) {
+            playSound("toofar.opus");
+            this.hasGivenTip = true;
         }
 
         if (this.lookedFor >= 2000) {
