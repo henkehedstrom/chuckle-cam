@@ -300,3 +300,13 @@ body {
                  0 50px 25px rgba(0, 0, 0, 0.2);
   }
 }
+
+
+.leaderboardImage
+{
+	width: 420px;
+	padding-top: 50px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
