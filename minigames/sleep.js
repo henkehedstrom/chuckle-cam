@@ -12,19 +12,28 @@ class SleepGame {
 		this.canvasOwner = document.querySelector("#sleepFrame");
 	}
 
+	playDontLook() {
+		playSound(`dontlook${Math.round(Math.random() * 3)+1}.opus`);
+	}
+
 	start() {
 		GoTo("sleepStart");
 
 		setTimeout(() => {
 			GoTo("sleepStart2");
+
 		}, 3000);
 
 		setTimeout(() => {
 			GoTo("sleepStart3");
+			playSound("relax.opus");
+
 		}, 4000);
 
 		setTimeout(() => {
 			GoTo("sleepGame");
+			this.playDontLook();
+
 			this.canvasOwner.appendChild(outputCanvas);
 			this.canvasOwner.removeChild(this.placeholder);
 			playMusic("lo-fi.mp3");
@@ -71,8 +80,10 @@ class SleepGame {
 		this.warnings++;
 		if (this.warnings >= 2) {
 			this.moveOn();
+			playSound("betterluck.opus");
 			return;
 		}
+		this.playDontLook();
 		playSound("record-scratch.flac");
 		stopMusic();
 		playSound("wambulance.mp3");
@@ -102,6 +113,10 @@ class SleepGame {
 			this.openEyes = 0;
 			this.hasSleepMinigameStarted = true;
 		} else if (this.hasSleepMinigameStarted) {
+			if (Math.random() < 0.1) {
+				this.playDontLook();
+			}
+
 			if (this.hasWon) {
 				this.shouldBreak = true;
 			} else {
