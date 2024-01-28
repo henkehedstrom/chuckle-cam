@@ -7,9 +7,9 @@ class SleepGame {
 		this.shouldBreak = false;
 		this.warnings = 0;
 		this.trueEnding = true;
-		this.canvas = document.querySelector("#sleepGame > canvas");
-		this.placeholder = document.querySelector("#sleepCanvasPlaceholder");
-		this.canvasOwner = document.querySelector("#sleepGame");
+		this.canvas = document.querySelector("#sleepGameCanvas");
+		this.placeholder = document.querySelector("#sleepGameCanvas");
+		this.canvasOwner = document.querySelector("#sleepFrame");
 	}
 
 	start() {
