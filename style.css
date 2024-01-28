@@ -60,6 +60,17 @@ body {
 	width: 1300px;
 	font-size: 70px;
 }
+#emoCounter {
+	position: absolute;
+	top:0;
+	left:0;
+}
+#emoCounter::part(base) {
+	width: 400px;
+}
+#emoCounter::part(text) {
+	display: none;
+}
 
 .happiness {
 	font-family: "Luckiest Guy";

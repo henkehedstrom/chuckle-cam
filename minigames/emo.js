@@ -4,6 +4,7 @@ class EmotionGame {
         this.state = 0;
         this.canvas = document.querySelector("#emoCanvas");
         this.title = document.querySelector("#emoGame > h1");
+        this.counter = document.querySelector("#emoCounter");
 		this.canvasOwner = document.querySelector("#emoFrame");
 		this.placeholder = document.querySelector("#emoCanvasPlaceHolder");
 
@@ -11,6 +12,7 @@ class EmotionGame {
         this.maxEmotionPictures = new Object();
         this.highestEmotion = "unknown";
         this.highestEmotionScore = 0.0;
+        this.currentScore = 0;
 
 
         onresult = (r) => this.loop(r);
@@ -37,7 +39,6 @@ class EmotionGame {
 			this.canvasOwner.appendChild(outputCanvas);
 			this.canvasOwner.removeChild(this.placeholder)
             this.changeState(1)
-            startRecording("emo");
 			startRecording("timelapse");
         }, 5000);
     }
@@ -51,7 +52,6 @@ class EmotionGame {
 
         GoTo("emoEnd");
         this.finished = true;
-        stopRecording("emo");
 
         setTimeout(() => {
             onGameComplete();
@@ -81,34 +81,54 @@ class EmotionGame {
         }
     }
 
+    getHeadPosition(result) {
+        if (result.face.length > 0) {
+            let face = result.face[0];
+            let x = (face.box[0]+face.box[2])/2;
+            let y = (face.box[1]+face.box[3])/2;
 
-    
+            this.counter.style.transform = `translate(${x}px, ${y}px) scale(5.5)`;
+            this.counter.style.opacity = "1";
+        } else {
+            this.counter.style.opacity = "0";
+        }
+    }
 
     emotion(emo, score) {
-        // console.log(`${emo}: ${score}`);
-
         switch (this.state) {
             case 1:
                 if (emo == "happy") {
                     this.currentScore += score;
                     this.saveMaxEmotion("happy",score);
+                } else {
+                    this.currentScore *= 0.95;
                 }
                 break;
             case 2:
                 if (emo == "sad") {
                     this.currentScore += score;
                     this.saveMaxEmotion("sad",score);
+                } else {
+                    this.currentScore *= 0.95;
                 }
                 break;
             case 3:
                 if (emo == "angry") {
                     this.currentScore += score;
                     this.saveMaxEmotion("angry",score);
+                } else {
+                    this.currentScore *= 0.95;
                 }
                 break;
         }
 
-        if (this.currentScore > 1) {
+        this.counter.value = this.currentScore * 20;
+
+        console.log(this.currentScore );
+        console.log(this.counter.value);
+
+
+        if (this.currentScore > 5) {
             console.log(`emotion ${emo} done!`);
 
             playSound("party-horn.wav");
@@ -149,6 +169,7 @@ class EmotionGame {
     }
 
     loop(result) {
+        this.getHeadPosition(result);
         if (result.face.length > 0) {
             result.face[0].emotion.forEach((e) => {
                 this.emotion(e.emotion, e.score);
