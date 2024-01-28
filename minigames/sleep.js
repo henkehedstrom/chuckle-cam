@@ -50,24 +50,6 @@ class SleepGame {
 		this.statsTest();
 	}
 
-	statsTest()
-	{
-
-		// stopRecording("timelapse");
-		// setTimeout(() => {
-		// 	let blob = getBlob("timelapse")
-		// 	const url = URL.createObjectURL(blob);
-		// 	const video = document.getElementById("timelapse");
-		// 	video.src = url;
-		// 	video.autoplay = true;
-		// video.defaultPlaybackRate = 8.0; 
-		// video.play();
-		// },0);
-		// slides.goto("statsTimelapse");
-		
-
-	}
-
 	moveOn() {
 		this.trueEnding = false;
 		this.shouldBreak = true;
@@ -95,7 +77,7 @@ class SleepGame {
 		playSound("wambulance.mp3");
 		slides.goto("sleepWarning");
 
-		setTimeout(() => {
+		setInterval(() => {
 			slides.goto("sleepGame");
 			playMusic("lo-fi.mp3");
 		}, 2500);
