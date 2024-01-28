@@ -11,14 +11,9 @@ class Stats {
         console.log("eating");
         stopRecording("timelapse");
 
-
         this.showEmotionStat("happy");
         this.showEmotionStat("sad");
         this.showEmotionStat("angry");
-
-
-
-
 
 		setTimeout(() => {
 		    setTimeout(() => {
