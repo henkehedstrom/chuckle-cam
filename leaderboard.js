@@ -11,31 +11,40 @@ window.onload = async () => {
 
 function addUser(userInfo,name)
 {
-    addText(name);
+    const tr = document.createElement("tr");
+    tr.id = name;
+    leaderboard.appendChild(tr);
+    addText(name,tr);
+    
    
 
 
     const data = userInfo.split(';');
-    addImage(data[0] + ";" + data[1]);
-    addText(data[2]);
+    addImage(data[0] + ";" + data[1],tr);
+    addText(data[2],tr);
+    addImage(data[3] + ";" + data[4],tr);
+    addText(data[5],tr);
+    addImage(data[6] + ";" + data[7],tr);
+    addText(data[8],tr);
+    addText(data[9],tr);
 
 
 
 
 }
 
-function addImage(imageData)
+function addImage(imageData,tr)
 {
     const image = document.createElement("img");
     const td = document.createElement("td");
     image.src = imageData;
     td.appendChild(image);
-    leaderboard.appendChild(td);
+    tr.appendChild(td);
 }
 
-function addText(textData)
+function addText(textData,tr)
 {
     const td = document.createElement("td");
     td.innerHTML = textData;
-    leaderboard.appendChild(td);
+    tr.appendChild(td);
 }
