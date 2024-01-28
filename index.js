@@ -4,7 +4,7 @@ let outputCanvas;
 let drawDebug = true;
 let onresult;
 let playerName = "Unknown name";
-
+let emote = new EmotionGame()
 
 function saveName()
 {
@@ -105,7 +105,7 @@ let currentGameIndex = -1; // Start at -1 since we increas it in onGameComplete
 // A minigame class MUST implement start() and run onGameComplete() when finished
 let minigames = [
 	new NodGame(),
-	new EmotionGame(),
+	emote,
 	new SleepGame(),
 	new Stats()
 ]
