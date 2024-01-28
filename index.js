@@ -72,6 +72,11 @@ async function detectLoop() {
 	requestAnimationFrame(detectLoop);
 }
 
+function GoTo(slide) {
+	console.log(`Going to slide ${slide}`);
+	slides.goto(slide);
+}
+
 window.onload = async () => {
 	let width = 1280;
 

@@ -14,12 +14,12 @@ class EmotionGame {
     start() {
         onresult = (r) => this.loop(r);
 
-        slides.goto("emoStart");
+        GoTo("emoStart");
 
         setTimeout(() => {
             console.log("Starting game");
 
-            slides.goto("emoGame");
+            GoTo("emoGame");
             this.jelly();
 			this.canvasOwner.appendChild(outputCanvas);
 			this.canvasOwner.removeChild(this.placeholder)
@@ -32,7 +32,7 @@ class EmotionGame {
     end() {
         console.log("Ending game");
 
-        slides.goto("emoEnd");
+        GoTo("emoEnd");
         this.finished = true;
         stopRecording("emo");
 
