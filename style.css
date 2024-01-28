@@ -92,6 +92,16 @@ body {
 	font-size: 40px;
 	opacity: 0;
 }
+#intro {
+	width: 800px;
+	font-size: 3em;
+}
+#intro input {
+	font-size: 1em;
+}
+#intro button {
+	font-size: 1em;
+}
 
 #sleepStart {
 	width: 800px;

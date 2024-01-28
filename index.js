@@ -4,21 +4,27 @@ let outputCanvas;
 let drawDebug = false;
 let onresult;
 let playerName = "Unknown name";
-let emote = new EmotionGame();
 let interval;
 let counter = 0
+let emote = new EmotionGame()
+let minigames;
 
-function saveName()
-{
-  playerName = document.getElementById("userInput").value;
-  console.log(playerName);
-}
+class Intro {
+	constructor() {
+		this.playerName = document.querySelector("#introText");
+		this.playerName.value = "";
 
+		this.startButton = document.querySelector("#introButton");
+		this.startButton.onclick = (e) => {this.end();}
+	}
+	start() {
+		GoTo("intro");
+	}
 
-let start_button = document.getElementById("start_button");
-if (document.getElementById("start_button"))
-{
-	start_button.onclick = saveName;
+	end() {
+		playerName = this.playerName.value;
+		onGameComplete();
+	}
 }
 
 document.addEventListener('keydown', function(event) {
@@ -81,11 +87,13 @@ function takePicture()
 }
 
 async function drawResults() {
-	const interpolated = human.next(); // get smoothened result using last-known results
-	human.draw.canvas(human.webcam.element, outputCanvas); // draw current webcam frame
-	if(drawDebug)
-	{
-		human.draw.all(outputCanvas, interpolated); // draw the frame detection results
+	if (outputCanvas != null) {
+		const interpolated = human.next(); // get smoothened result using last-known results
+		human.draw.canvas(human.webcam.element, outputCanvas); // draw current webcam frame
+		if(drawDebug)
+		{
+			human.draw.all(outputCanvas, interpolated); // draw the frame detection results
+		}
 	}
 	requestAnimationFrame(drawResults); // run draw loop
 }
@@ -115,27 +123,43 @@ window.onload = async () => {
 	human = new Human.Human(); // create instance of Human
 	//outputCanvas = document.getElementById('canvas-id');
 
-	onGameComplete();
 
 
 	await human.webcam.start({ crop: false, width });
-	outputCanvas.width = human.webcam.width;
-	outputCanvas.height = human.webcam.height;
+	if (outputCanvas != null) {
+		outputCanvas.width = human.webcam.width;
+		outputCanvas.height = human.webcam.height;
+	}
 	drawResults(); // start draw loop
 	detectLoop();
 
+
+	// To add a minigame add an instance of your minigame class in minigames
+	// A minigame class MUST implement start() and run onGameComplete() when finished
+	minigames = [
+		new Intro(),
+		new NodGame(),
+		emote,
+		new SleepGame(),
+		new Stats()
+	]
+
+	onGameComplete();
 };
 
 let currentGameIndex = -1; // Start at -1 since we increas it in onGameComplete
 
-// To add a minigame add an instance of your minigame class in minigames
-// A minigame class MUST implement start() and run onGameComplete() when finished
-let minigames = [
-	new NodGame(),
-	emote,
-	new SleepGame(),
-	new Stats()
-]
+
+function removeFragment() {
+	window.location.replace("#");
+
+// slice off the remaining '#' in HTML5:
+	if (typeof window.history.replaceState == 'function') {
+		history.replaceState({}, '', window.location.href.slice(0, -1));
+	}
+}
+
+removeFragment();
 
 let currentMinigame;
 function onGameComplete() {
