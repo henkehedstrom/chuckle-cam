@@ -26,9 +26,10 @@ class Stats {
 			const url = URL.createObjectURL(blob);
 			const video = document.getElementById("timelapse");
 			video.src = url;
-		    video.defaultPlaybackRate = 2; 
+		    video.playbackRate = 4; 
 		    video.play();
 		    },0);
+            this.showTimelapse();
 		}, 2000);
 
         
@@ -71,13 +72,29 @@ class Stats {
     {
         slides.goto("statsEmotionsStart");
         setTimeout(() => {
-			this.showStatsEmotions();
+			this.showHappy();
 		}, 3000);
     }
 
-    showStatsEmotions()
+    showHappy()
     {
-        slides.goto("statsEmotions");
+        slides.goto("happiestEmotion");
+        setTimeout(() => {
+			this.showSad();
+		}, 3000);
+    }
+
+    showSad()
+    {
+        slides.goto("saddestEmotion");
+        setTimeout(() => {
+			this.showAngry();
+		}, 3000);
+    }
+
+    showAngry()
+    {
+        slides.goto("angriestEmotion");
         setTimeout(() => {
 			this.end();
 		}, 3000);
