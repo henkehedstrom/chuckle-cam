@@ -96,6 +96,14 @@ body {
 	font-family: "Special Elite";
 	color: mediumpurple;
 }
+.orienting {
+	font-family: "Honk";
+	color: lightskyblue;
+}
+.fancyDirections {
+	font-family: "Single Day";
+	color: darkorange;
+}
 
 #emoEnd {
 	width: 400px;
@@ -147,6 +155,10 @@ body {
 	width: 1000px;
 	font-size: 75px;
 	font-family: "Rock Salt";
+}
+#statsEmotionsStart {
+	width: 500px;
+	font-size: 2em;
 }
 
 #statsEnd {
