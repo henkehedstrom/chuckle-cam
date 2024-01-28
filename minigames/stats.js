@@ -6,6 +6,7 @@ class Stats {
 	}
 
 	start() {
+		playMusic("recap-song.mp3");
 		GoTo("statsStart");
         console.log("eating");
         stopRecording("timelapse");

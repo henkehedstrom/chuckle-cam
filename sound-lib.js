@@ -1,6 +1,6 @@
 var soundDict = {};
 var musicDict = {};
-var activeMusic;
+let activeMusic = null;
 var soundOn = true;
 
 function playSound(fileName) {
