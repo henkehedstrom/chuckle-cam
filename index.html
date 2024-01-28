@@ -14,31 +14,30 @@
 </head>
 <body>
 <div id="impress">
-    <div id="nodStart" class="step" data-x="-5750" data-y="500" data-width="800" data-scale="2.9" data-rotate-z="180">
+
+    <!-- Nod game -->
+    <div id="nodStart" class="step" data-x="0" data-y="0" data-z="1000" data-width="800" data-scale="2" data-rotate-z="0">
         <h1>Tutorial, you will look around a bit...</h1>
         <p>Look in the direction of the arrow </p>
     </div>
 
-    <div id="nodGame" class="step" data-x="-4750" data-y="2000" data-z="-1000" data-scale="2"
-         data-rotate-z="90">
+    <div id="nodGame" class="step" data-x="2500" data-y="0" data-z="0" data-rotate-z="90">
         <h1 id="nodTitle"></h1>
 
         <canvas width="1280" height="720" id="nodCanvas"></canvas>
     </div>
 
-    <div id="nodEnd" class="step" data-x="-5000" data-y="3000"
-         data-rotate-z="90">
+    <div id="nodEnd" class="step" data-x="2500" data-y="2000" data-rotate-z="90">
         <h1>Good job, you can follow instructions!</h1>
     </div>
 
-
-    <div id="emoStart" class="step" data-x="-1750" data-y="1000" data-width="800" data-scale="2.9">
+    <!-- Emo game -->
+    <div id="emoStart" class="step" data-x="4000" data-y="2000" data-rotate-z="0">
         <h1>Show your <span id="happiness">happiness</span> and <span id="anger">anger!</span></h1>
         <p>Try and display the emotion shown on the screen</p>
     </div>
 
-    <div id="emoGame" class="step" data-x="1000" data-y="1000" data-z="-1000" data-scale="2"
-         data-rotate-z="90">
+    <div id="emoGame" class="step" data-x="6000" data-y="2000" data-z="-1000">
         <h1 id="emoTitle"></h1>
 
         <div class="frame-outer" id="emoFrame">
@@ -46,49 +45,50 @@
         </div>
     </div>
 
-    <div id="emoEnd" class="step" data-x="2000" data-y="1000"
-    data-rotate-z="90">
+    <div id="emoEnd" class="step" data-x="5500" data-y="4000"data-rotate-z="0">
         <h1>Good job, you were pretty happy!</h1>
     </div>
 
-    <div id="sleepStart" class="step" data-x="3000" data-y="1000" data-z="-1000" data-scale="2" data-rotate-z="0">
+    <!-- Sleep game -->
+    <div id="sleepStart" class="step" data-x="5500" data-y="6000" data-z="-1000" data-rotate-z="90">
         <h2>Next up</h2>
     </div>
-    <div id="sleepStart2" class="step" data-x="5500" data-y="1000" data-z="-1000" data-scale="2" data-rotate-z="0">
+    <div id="sleepStart2" class="step" data-x="4000" data-y="6000" data-z="-1000" data-rotate-z="90">
         <h2>Time to relax</h2>
     </div>
-    <div id="sleepStart3" class="step" data-x="5500" data-y="1500" data-z="-1000" data-scale="2" data-rotate-z="0">
+    <div id="sleepStart3" class="step" data-x="3500" data-y="6000" data-z="-1000" data-rotate-z="90">
         <h2>Close your eyes</h2>
     </div>
-    <div id="sleepWarning" class="step" data-x="5500" data-y="5000" data-z="-1000" data-scale="2" data-rotate-z="0">
-        <h2>Don't peek!</h2>
-    </div>
-    <div id="sleepTooBad1" class="step" data-x="8000" data-y="2000" data-z="-1000" data-scale="2" data-rotate-z="0">
-        <h2>You seem to be struggling</h2>
-    </div>
-    <div id="sleepTooBad2" class="step" data-x="8700" data-y="1000" data-z="-1000" data-scale="2" data-rotate-z="-90">
-        <h2>Let's move on</h2>
-    </div>
-    <div id="sleepGame" class="step" data-x="5500" data-y="3000" data-z="-1000" data-scale="2" data-rotate-z="0">
+    <div id="sleepGame" class="step" data-x="2000" data-y="6000" data-z="-1000" data-rotate-z="90">
 	<div id="sleepFrame" class="FrameDark">
 	        <canvas id="sleepGameCanvas" width="1280" height="720" class="canvas"></canvas>
 	</div>
     </div>
-    <div id="sleepEnd" class="step" data-x="7600" data-y="3000" data-z="-1000" data-scale="2" data-rotate-z="0">
+    <div id="sleepWarning" class="step" data-x="3200" data-y="7800" data-z="-1000" data-rotate-z="90">
+        <h2>Don't peek!</h2>
+    </div>
+    <div id="sleepTooBad1" class="step" data-x="500" data-y="7000" data-z="-1000" data-rotate-z="90">
+        <h2>You seem to be struggling</h2>
+    </div>
+    <div id="sleepTooBad2" class="step" data-x="-500" data-y="7000" data-z="-1000" data-rotate-z="180">
+        <h2>Let's move on</h2>
+    </div>
+    <div id="sleepEnd" class="step" data-x="-500" data-y="6000" data-z="-1000" data-rotate-z="180">
         <h2>Wow, you slept like a bear!</h2>
         <p>You only peeked 234 times</p>
     </div>
 
-    <div id="statsStart" class="step" data-x="8500" data-y="1000" data-z="-1000" data-scale="2" data-rotate-z="0">
+    <!-- Stats game -->
+    <div id="statsStart" class="step" data-x="-1000" data-y="4000" data-z="-1000" data-rotate-z="270">
         <h2>Congratulations!</h2>
         <p>You won the game, let's see how you did!</p>
     </div>
 
-    <div id="statsTimelapse" class="step" data-x="9000" data-y="1000" data-z="-1000" data-scale="2" data-rotate-z="0">
+    <div id="statsTimelapse" class="step" data-x="-1000" data-y="2000" data-z="-1000" data-rotate-z="0">
         <video width="1280" height="720" class="video" autoplay="true" loop="true" id="timelapse"></video>
     </div>
 
-    <div id="statsEnd" class="step" data-x="12000" data-y="1000" data-z="-1000" data-scale="2" data-rotate-z="0">
+    <div id="statsEnd" class="step" data-x="-1500" data-y="500" data-z="-1000" data-rotate-z="0">
         <p>Thanks for playing! </p>
     </div>
 </div>
