@@ -129,7 +129,7 @@ window.onload = async () => {
 	slides.init();
 
 	const config = { backend: 'webgl', modelBasePath: 'models/' };
-	human = new Human.Human(); // create instance of Human
+	human = new Human.Human(config); // create instance of Human
 	//outputCanvas = document.getElementById('canvas-id');
 
 
