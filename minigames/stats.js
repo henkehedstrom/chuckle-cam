@@ -7,8 +7,8 @@ class Stats {
 	}
 
 	start() {
-		slides.goto("statsStart");
-        console.log("showingstats");
+		GoTo("statsStart");
+        console.log("eating");
         stopRecording("timelapse");
 
 		setTimeout(() => {
@@ -22,6 +22,7 @@ class Stats {
 		    video.play();
 		    },0);
 		slides.goto("statsTimelapse");
+			this.loop();
 		}, 2000);
 
         setTimeout(() => {
@@ -32,6 +33,7 @@ class Stats {
 	end() {
         slides.goto("statsEnd");
 		setTimeout(() => {
+			slides.goto("statsEnd");
 
 			onGameComplete();
 		}, 2000);

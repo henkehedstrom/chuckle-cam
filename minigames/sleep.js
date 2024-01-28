@@ -13,18 +13,18 @@ class SleepGame {
 	}
 
 	start() {
-		slides.goto("sleepStart");
+		GoTo("sleepStart");
 
 		setTimeout(() => {
-			slides.goto("sleepStart2");
+			GoTo("sleepStart2");
 		}, 2000);
 
 		setTimeout(() => {
-			slides.goto("sleepStart3");
+			GoTo("sleepStart3");
 		}, 3000);
 
 		setTimeout(() => {
-			slides.goto("sleepGame");
+			GoTo("sleepGame");
 			this.canvasOwner.appendChild(outputCanvas);
 			this.canvasOwner.removeChild(this.placeholder);
 			playMusic("lo-fi.mp3");
@@ -43,7 +43,7 @@ class SleepGame {
 		stopMusic();
 		
 		 setTimeout(() => {
-		 	slides.goto("sleepEnd");
+		 	GoTo("sleepEnd");
 		
 		  	onGameComplete();
 		  }, 4000);
@@ -55,10 +55,10 @@ class SleepGame {
 		this.shouldBreak = true;
 		stopMusic();
 
-		slides.goto("sleepTooBad1");
+		GoTo("sleepTooBad1");
 		
 		setTimeout(() => {
-			slides.goto("sleepTooBad2");
+			GoTo("sleepTooBad2");
 		}, 2000);
 
 		setTimeout(() => {
@@ -75,10 +75,10 @@ class SleepGame {
 		playSound("record-scratch.flac");
 		stopMusic();
 		playSound("wambulance.mp3");
-		slides.goto("sleepWarning");
+		GoTo("sleepWarning");
 
-		setInterval(() => {
-			slides.goto("sleepGame");
+		setTimeout(() => {
+			GoTo("sleepGame");
 			playMusic("lo-fi.mp3");
 		}, 2500);
 	}

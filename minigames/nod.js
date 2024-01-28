@@ -32,12 +32,12 @@ class NodGame {
     start() {
         onresult = (r) => this.loop(r);
 
-        slides.goto("nodStart");
+        GoTo("nodStart");
         outputCanvas = this.canvas;
 
         setTimeout(() => {
             this.setTargetDirection(this.instructions.pop());
-            slides.goto("nodGame");
+            GoTo("nodGame");
         }, 5000);
     }
 
@@ -52,7 +52,7 @@ class NodGame {
             origin: {y: 0.6},
         });
 
-        slides.goto("nodEnd");
+        GoTo("nodEnd");
         this.finished = true;
 
         setTimeout(() => {
