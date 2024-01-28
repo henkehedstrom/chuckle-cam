@@ -4,7 +4,9 @@ let outputCanvas;
 let drawDebug = false;
 let onresult;
 let playerName = "Unknown name";
-let emote = new EmotionGame()
+let emote = new EmotionGame();
+let interval;
+let counter = 0
 
 function saveName()
 {
@@ -45,6 +47,31 @@ function switchDebugDrawing()
 	console.log("switching debugdraw")
 }
 
+function convertSec(cnt) {
+	let sec = cnt % 60;
+	let min = Math.floor(cnt / 60);
+	if (sec < 10) {
+	  if (min < 10) {
+		return "0" + min + ":0" + sec;
+	  } else {
+		return min + ":0" + sec;
+	  }
+	} else if ((min < 10) && (sec >= 10)) {
+	  return "0" + min + ":" + sec;
+	} else {
+	  return min + ":" + sec;
+	}
+  }
+  
+  function startTimer() {
+	interval = setInterval(function() {
+		console.log(counter++);
+	}, 1000);
+  }
+
+  function stopTimer() {
+	clearInterval(interval);
+  }
 
 function takePicture()
 {

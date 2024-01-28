@@ -3,13 +3,17 @@ class Stats {
         this.mouthOpen = false;
 		this.hasWon = false;
 		this.shouldBreak = false;
-		this.canvas = document.querySelector("#eatGame > canvas");
 	}
 
 	start() {
 		GoTo("statsStart");
         console.log("eating");
         stopRecording("timelapse");
+        stopTimer();
+        
+        this.time = convertSec(counter); 
+        let header = document.getElementById("timerHeader");
+        header.innerText = "You managed to finish the game in " +  this.time + " seconds.";
 
         this.showEmotionStat("happy");
         this.showEmotionStat("sad");
@@ -60,7 +64,7 @@ class Stats {
 		slides.goto("statsTimelapse");
         setTimeout(() => {
 			this.showStatsStart();
-		}, 30000);
+		}, 20000);
     }
 
     showStatsStart()
@@ -76,7 +80,7 @@ class Stats {
         slides.goto("happiestEmotion");
         setTimeout(() => {
 			this.showSad();
-		}, 3000);
+		}, 5000);
     }
 
     showSad()
@@ -84,15 +88,23 @@ class Stats {
         slides.goto("saddestEmotion");
         setTimeout(() => {
 			this.showAngry();
-		}, 3000);
+		}, 5000);
     }
 
     showAngry()
     {
         slides.goto("angriestEmotion");
         setTimeout(() => {
+			this.showTimer();
+		}, 5000);
+    }
+
+    showTimer()
+    {
+        slides.goto("timer");
+        setTimeout(() => {
 			this.end();
-		}, 3000);
+		}, 5000);
     }
 
 	end() {

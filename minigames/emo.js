@@ -123,11 +123,7 @@ class EmotionGame {
 
         this.counter.value = this.currentScore * 20;
 
-        console.log(this.currentScore );
-        console.log(this.counter.value);
-
-
-        if (this.currentScore > 5) {
+        if (this.currentScore > 1) {
             console.log(`emotion ${emo} done!`);
 
             playSound("party-horn.wav");

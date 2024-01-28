@@ -35,7 +35,7 @@ class NodGame {
 
     start() {
         onresult = (r) => this.loop(r);
-
+        startTimer();
         GoTo("nodStart");
         outputCanvas = this.canvas;
 
