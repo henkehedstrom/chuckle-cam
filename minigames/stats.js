@@ -33,12 +33,6 @@ class Stats {
 
 		setTimeout(() => {
 		    setTimeout(() => {
-			let blob = getBlob("timelapse")
-			const url = URL.createObjectURL(blob);
-			const video = document.getElementById("timelapse");
-			video.src = url;
-		    video.playbackRate = 4; 
-		    video.play();
 		    },0);
             this.showTimelapse();
 		}, 2000);
@@ -97,10 +91,18 @@ class Stats {
 
     showTimelapse()
     {
-		slides.goto("statsTimelapse");
-        setTimeout(() => {
-			this.showStatsStart();
-		}, 20000);
+	    slides.goto("statsTimelapse");
+
+	    let blob = getBlob("timelapse")
+	    const url = URL.createObjectURL(blob);
+	    const video = document.getElementById("timelapse");
+	    video.src = url;
+	    video.playbackRate = 4; 
+	    video.play();
+
+	    video.onended = (e) => {
+		    this.showStatsStart();
+	    };
     }
 
     showStatsStart()
