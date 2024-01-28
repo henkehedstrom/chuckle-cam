@@ -65,12 +65,15 @@ class EmotionGame {
                 break;
             case 1:
                 this.title.innerText = "Show us your happy face 😹";
+                playSound("happy.opus");
                 break;
             case 2:
                 this.title.innerText = "Show us your sad face 😢";
+                playSound("sad.opus");
                 break;
             case 3:
                 this.title.innerText = "Get angry!!! 😡😠";
+                playSound("angry.opus");
                 break;
             default:
                 if (!this.finished) {
