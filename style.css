@@ -199,6 +199,22 @@ body {
 	font-family: "Dokdo";
 }
 
+#timer
+{
+	width: 500px;
+	font-size: 2em;
+	color: purple;
+	font-family: "Special Elite";
+}
+
+#sleepTime
+{
+	width: 500px;
+	font-size: 2em;
+	color: green;
+	font-family: "Dokdo";
+}
+
 .jelly {
 	animation: jelly 0.5s;
 }
@@ -341,4 +357,6 @@ body {
 	padding-left: 0px;
 	padding-right: 0px;
 }
+
+
 
