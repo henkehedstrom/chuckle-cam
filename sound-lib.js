@@ -26,12 +26,12 @@ function playMusic(fileName) {
 		activeMusic.currentTime = 0;
 	}
 
-	var audio = musicDict[fileName];
-	if (audio == null) {
+	activeMusic = musicDict[fileName];
+	if (activeMusic == null) {
 		musicDict[fileName] = new Audio("/music/" + fileName);
-		audio = musicDict[fileName];
+		activeMusic = musicDict[fileName];
 	}
-	audio.play();
+	activeMusic.play();
 }
 
 function stopMusic() {

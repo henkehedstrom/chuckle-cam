@@ -17,11 +17,11 @@ class SleepGame {
 
 		setTimeout(() => {
 			GoTo("sleepStart2");
-		}, 2000);
+		}, 3000);
 
 		setTimeout(() => {
 			GoTo("sleepStart3");
-		}, 3000);
+		}, 4000);
 
 		setTimeout(() => {
 			GoTo("sleepGame");
@@ -29,7 +29,7 @@ class SleepGame {
 			this.canvasOwner.removeChild(this.placeholder);
 			playMusic("lo-fi.mp3");
 			this.loop();
-		}, 5500);
+		}, 6500);
 	}
 
 	end() {
@@ -54,6 +54,7 @@ class SleepGame {
 		this.trueEnding = false;
 		this.shouldBreak = true;
 		stopMusic();
+		playSound("so-sad.mp3");
 
 		GoTo("sleepTooBad1");
 		

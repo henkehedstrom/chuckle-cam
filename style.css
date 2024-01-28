@@ -35,6 +35,18 @@ body {
 	opacity: 0;
 }
 
+#sleepTooBad1 {
+	width: 400px;
+	font-size: 52px;
+	font-family: "Special Elite";
+}
+
+#sleepTooBad2 {
+	width: 800px;
+	font-size: 52px;
+	font-family: "Special Elite";
+}
+
 .active, .past {
 	opacity: 1.0 !important;
 	animation: 0.5s ease !important;
@@ -49,9 +61,14 @@ body {
 	font-size: 70px;
 }
 
-#happiness {
+.happiness {
 	font-family: "Luckiest Guy";
 	color: yellow;
+}
+
+#sadness {
+	font-family: "Merienda";
+	color: lightblue;
 }
 
 #anger {
@@ -83,9 +100,9 @@ body {
 }
 
 #sleepWarning {
-	width: 800px;
+	width: 1000px;
 	font-size: 52px;
-	font-family: "Press Start P2";
+	font-family: "Press Start 2P";
 	color: red;
 }
 
@@ -93,6 +110,18 @@ body {
 	opacity: 0;
 	width: 700px;
 	font-size: 70px;
+}
+
+#statsStart {
+	width: 1000px;
+	font-size: 75px;
+	font-family: "Rock Salt";
+}
+
+#statsEnd {
+	width: 1000px;
+	font-size: 90px;
+	font-family: "Dokdo";
 }
 
 .jelly {
