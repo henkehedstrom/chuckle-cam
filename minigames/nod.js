@@ -13,18 +13,22 @@ class NodGame {
         switch (dir) {
             case "up":
                 this.text.innerText = "Look up!";
+                playSound("up.opus");
                 break;
 
             case "down":
                 this.text.innerText = "Look down!";
+                playSound("down.opus");
                 break;
 
             case "left":
                 this.text.innerText = "Look to the left!";
+                playSound("left.opus");
                 break;
 
             case "right":
                 this.text.innerText = "Look to the right!";
+                playSound("right.opus");
                 break;
         }
     }
