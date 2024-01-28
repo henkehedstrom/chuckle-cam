@@ -95,7 +95,7 @@ class SleepGame {
 		playSound("wambulance.mp3");
 		slides.goto("sleepWarning");
 
-		setInterval(() => {
+		setTimeout(() => {
 			slides.goto("sleepGame");
 			playMusic("lo-fi.mp3");
 		}, 2500);

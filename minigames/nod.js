@@ -75,7 +75,7 @@ class NodGame {
             this.lookedFor += (now - this.lastLoop);
         }
 
-        if (this.lookedFor >= 4000) {
+        if (this.lookedFor >= 2000) {
             if (this.instructions.length === 0) {
                 this.end();
             }

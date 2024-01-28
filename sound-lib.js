@@ -1,7 +1,7 @@
 var soundDict = {};
 var musicDict = {};
 var activeMusic;
-var soundOn = false;
+var soundOn = true;
 
 function playSound(fileName) {
 	if (!soundOn) {

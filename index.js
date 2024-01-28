@@ -25,6 +25,9 @@ document.addEventListener('keydown', function(event) {
 		case 'KeyE':
 			switchDebugDrawing();
 			break;
+		case 'KeyN':
+			currentMinigame.end();
+			break;
 		case 'KeyA':
 			takePicture();
 			playSound("party-horn.wav");
