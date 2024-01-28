@@ -17,8 +17,7 @@ class Stats {
 			const url = URL.createObjectURL(blob);
 			const video = document.getElementById("timelapse");
 			video.src = url;
-			video.autoplay = true;
-		    video.defaultPlaybackRate = 8.0; 
+		    video.defaultPlaybackRate = 2; 
 		    video.play();
 		    },0);
 		slides.goto("statsTimelapse");
@@ -37,18 +36,5 @@ class Stats {
 
 			onGameComplete();
 		}, 2000);
-	}
-
-
-	loop() {
-		console.log("looping");
-       
-       
-	
-		if (this.shouldBreak) {
-			this.end();
-		} else {
-			setTimeout(() => this.loop(), 10);
-		}
 	}
 }

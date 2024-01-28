@@ -50,6 +50,7 @@ function takePicture()
 {
 	let image_data_url = outputCanvas.toDataURL('image/jpeg');
 	console.log(image_data_url);
+	return image_data_url;
 }
 
 async function drawResults() {

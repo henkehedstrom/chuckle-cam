@@ -7,14 +7,27 @@ class EmotionGame {
 		this.canvasOwner = document.querySelector("#emoFrame");
 		this.placeholder = document.querySelector("#emoCanvasPlaceHolder");
 
+        this.maxEmotionScores = new Object();
+        this.maxEmotionPictures = new Object();
+        this.highestEmotion = "unknown";
+        this.highestEmotionScore = 0.0;
+
 
         onresult = (r) => this.loop(r);
+    }
+
+    populateEmotions()
+    {
+        this.maxEmotionScores["happy"] = 0;
+        this.maxEmotionScores["sad"] = 0;
+        this.maxEmotionScores["angry"] = 0;
     }
 
     start() {
         onresult = (r) => this.loop(r);
 
         GoTo("emoStart");
+        this.populateEmotions();
 
         setTimeout(() => {
             console.log("Starting game");
@@ -29,8 +42,12 @@ class EmotionGame {
         }, 5000);
     }
 
+
     end() {
         console.log("Ending game");
+
+        console.log("Your strongest emotion was : " + this.highestEmotion + " with the score of: " + this.highestEmotionScore);
+
 
         GoTo("emoEnd");
         this.finished = true;
@@ -64,6 +81,9 @@ class EmotionGame {
         }
     }
 
+
+    
+
     emotion(emo, score) {
         // console.log(`${emo}: ${score}`);
 
@@ -71,16 +91,19 @@ class EmotionGame {
             case 1:
                 if (emo == "happy") {
                     this.currentScore += score;
+                    this.saveMaxEmotion("happy",score);
                 }
                 break;
             case 2:
                 if (emo == "sad") {
                     this.currentScore += score;
+                    this.saveMaxEmotion("sad",score);
                 }
                 break;
             case 3:
                 if (emo == "angry") {
                     this.currentScore += score;
+                    this.saveMaxEmotion("angry",score);
                 }
                 break;
         }
@@ -96,6 +119,21 @@ class EmotionGame {
                 origin: {y: 0.6},
             });
             this.changeState(this.state + 1);
+        }
+    }
+
+    saveMaxEmotion(emotionType,score)
+    {
+        if(this.maxEmotionScores[emotionType] < score)
+        {
+            this.maxEmotionScores[emotionType] = score;
+            this.maxEmotionPictures[emotionType] = takePicture();    
+        }
+        console.log("highest emo is " + this.highestEmotionScore + " score is " + score)
+        if(this.highestEmotionScore < score)
+        {
+            this.highestEmotionScore = score;
+            this.highestEmotion = emotionType;
         }
     }
 
