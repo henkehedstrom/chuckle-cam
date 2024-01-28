@@ -56,7 +56,6 @@ class SleepGame {
 		
 		  	onGameComplete();
 		  }, 7500);
-		this.statsTest();
 	}
 
 	moveOn() {
