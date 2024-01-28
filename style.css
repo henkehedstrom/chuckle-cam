@@ -118,6 +118,12 @@ body {
 	font-family: "Rock Salt";
 }
 
+#statsEnd {
+	width: 1000px;
+	font-size: 90px;
+	font-family: "Dokdo";
+}
+
 .jelly {
 	animation: jelly 0.5s;
 }
