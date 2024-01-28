@@ -20,6 +20,7 @@ class Intro {
 		this.startButton.onclick = (e) => {this.end();}
 	}
 	start() {
+		document.querySelector("#consent").checked = true;
 		GoTo("intro");
 
 	}

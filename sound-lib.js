@@ -3,7 +3,7 @@ var musicDict = {};
 let activeMusic = null;
 var soundOn = true;
 
-function playSound(fileName) {
+function playSound(fileName, volume) {
 	if (!soundOn) {
 		return;
 	}
@@ -13,10 +13,13 @@ function playSound(fileName) {
 		soundDict[fileName] = new Audio("/sounds/" + fileName);
 		audio = soundDict[fileName];
 	}
+	if (volume !== null) {
+		audio.volume = volume;
+	}
 	audio.play();
 }
 
-function playMusic(fileName) {
+function playMusic(fileName, volume) {
 	if (!soundOn) {
 		return;
 	}
@@ -30,6 +33,9 @@ function playMusic(fileName) {
 	if (activeMusic == null) {
 		musicDict[fileName] = new Audio("/music/" + fileName);
 		activeMusic = musicDict[fileName];
+	}
+	if (volume !== null) {
+		activeMusic.volume = volume;
 	}
 	activeMusic.play();
 }
