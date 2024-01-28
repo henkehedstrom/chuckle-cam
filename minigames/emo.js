@@ -64,19 +64,23 @@ class EmotionGame {
             case 0:
                 break;
             case 1:
+		playMusic("happy-theme.mp3");
                 this.title.innerText = "Show us your happy face 😹";
                 playSound("happy.opus");
                 break;
             case 2:
+		playMusic("sad-theme.mp3");
                 this.title.innerText = "Show us your sad face 😢";
                 playSound("sad.opus");
                 break;
             case 3:
+		playMusic("angry-theme.mp3");
                 this.title.innerText = "Get angry!!! 😡😠";
                 playSound("angry.opus");
                 break;
             default:
                 if (!this.finished) {
+		    stopMusic();
                     this.end();
                 }
                 break;
