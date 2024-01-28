@@ -39,7 +39,7 @@ class EmotionGame {
 			this.canvasOwner.appendChild(outputCanvas);
 			this.canvasOwner.removeChild(this.placeholder)
             this.changeState(1)
-        }, 5000);
+        }, 12000);
     }
 
 
@@ -54,7 +54,7 @@ class EmotionGame {
 
         setTimeout(() => {
             onGameComplete();
-        }, 3000);
+        }, 5500);
     }
 
     changeState(nextState) {

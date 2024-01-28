@@ -35,7 +35,7 @@ class Stats {
 		    setTimeout(() => {
 		    },0);
             this.showTimelapse();
-		}, 2000);
+		}, 6000);
 
         
 	}
@@ -110,7 +110,7 @@ class Stats {
         slides.goto("statsEmotionsStart");
         setTimeout(() => {
 			this.showHappy();
-		}, 3000);
+		}, 4000);
     }
 
     showHappy()
@@ -142,7 +142,7 @@ class Stats {
         slides.goto("timer");
         setTimeout(() => {
 			this.end();
-		}, 5000);
+		}, 6000);
     }
 
 	end() {
