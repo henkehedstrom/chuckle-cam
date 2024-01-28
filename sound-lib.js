@@ -13,7 +13,7 @@ function playSound(fileName, volume) {
 		soundDict[fileName] = new Audio("/sounds/" + fileName);
 		audio = soundDict[fileName];
 	}
-	if (volume !== null) {
+	if (typeof volume === Number) {
 		audio.volume = volume;
 	}
 	audio.play();
@@ -34,7 +34,7 @@ function playMusic(fileName, volume) {
 		musicDict[fileName] = new Audio("/music/" + fileName);
 		activeMusic = musicDict[fileName];
 	}
-	if (volume !== null) {
+	if (typeof volume === Number) {
 		activeMusic.volume = volume;
 	}
 	activeMusic.play();
