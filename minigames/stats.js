@@ -32,15 +32,15 @@ class Stats {
         this.showEmotionStat("sad");
         this.showEmotionStat("angry");
 
-        this.saveStatsToLocalStorage();
+        if (consent) {
+            this.saveStatsToLocalStorage();
+        }
 
 		setTimeout(() => {
 		    setTimeout(() => {
 		    },0);
             this.showTimelapse();
 		}, 6000);
-
-        
 	}
 
     saveStatsToLocalStorage()
@@ -57,6 +57,7 @@ class Stats {
         saveString+= this.angryScore + ";";
 
         saveString+= this.time;
+
 
         localStorage.setItem(playerName,saveString);
     }

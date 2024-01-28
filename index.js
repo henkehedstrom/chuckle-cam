@@ -9,6 +9,7 @@ let counter = 0
 let emote = new EmotionGame();
 let sleep = new SleepGame();
 let minigames;
+let consent = false;
 
 class Intro {
 	constructor() {
@@ -20,10 +21,13 @@ class Intro {
 	}
 	start() {
 		GoTo("intro");
+
 	}
 
 	end() {
 		playerName = this.playerName.value;
+		consent = document.querySelector("#consent").checked;
+		console.log("consent="+consent);
 		onGameComplete();
 	}
 }
