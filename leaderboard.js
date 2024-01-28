@@ -4,6 +4,7 @@ var scrollingDown = true;
 var intervalId;
 
 var scrollDistance = 1;
+var refreshMultiplier = 1;
 
 var Height = document.documentElement.scrollHeight;
 var currentHeight = 0;
@@ -26,10 +27,10 @@ var interval = setInterval(scrollpage, speed)
 
     }
 
-var loadinterval = setInterval(() => {
-    location.reload();
-}, (60000));
 
+    var loadinterval = setInterval(() => {
+        location.reload();
+    }, (120000));
 
 window.onload = async () => {
 	
@@ -37,7 +38,9 @@ window.onload = async () => {
     Object.keys(localStorage).forEach(function(key){
         addUser(localStorage.getItem(key),key);
      });
+     refreshMultiplier = Object.keys
 
+     
 };
 
 function addUser(userInfo,name)
