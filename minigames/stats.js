@@ -33,15 +33,9 @@ class Stats {
 
 		setTimeout(() => {
 		    setTimeout(() => {
-			let blob = getBlob("timelapse")
-			const url = URL.createObjectURL(blob);
-			const video = document.getElementById("timelapse");
-			video.src = url;
-		    video.playbackRate = 4; 
-		    video.play();
 		    },0);
             this.showTimelapse();
-		}, 2000);
+		}, 6000);
 
         
 	}
@@ -97,10 +91,18 @@ class Stats {
 
     showTimelapse()
     {
-		slides.goto("statsTimelapse");
-        setTimeout(() => {
-			this.showStatsStart();
-		}, 20000);
+	    slides.goto("statsTimelapse");
+
+	    let blob = getBlob("timelapse")
+	    const url = URL.createObjectURL(blob);
+	    const video = document.getElementById("timelapse");
+	    video.src = url;
+	    video.playbackRate = 4; 
+	    video.play();
+
+	    video.onended = (e) => {
+		    this.showStatsStart();
+	    };
     }
 
     showStatsStart()
@@ -108,7 +110,7 @@ class Stats {
         slides.goto("statsEmotionsStart");
         setTimeout(() => {
 			this.showHappy();
-		}, 3000);
+		}, 4000);
     }
 
     showHappy()
@@ -140,7 +142,7 @@ class Stats {
         slides.goto("timer");
         setTimeout(() => {
 			this.end();
-		}, 5000);
+		}, 6000);
     }
 
 	end() {

@@ -28,7 +28,7 @@ class SleepGame {
 			GoTo("sleepStart3");
 			playSound("relax.opus");
 
-		}, 4000);
+		}, 5000);
 
 		setTimeout(() => {
 			GoTo("sleepGame");
@@ -38,7 +38,7 @@ class SleepGame {
 			this.canvasOwner.removeChild(this.placeholder);
 			playMusic("lo-fi.mp3");
 			this.loop();
-		}, 6500);
+		}, 7500);
 	}
 
 	end() {
@@ -55,7 +55,7 @@ class SleepGame {
 		 	GoTo("sleepEnd");
 		
 		  	onGameComplete();
-		  }, 4000);
+		  }, 7500);
 		this.statsTest();
 	}
 
@@ -69,11 +69,11 @@ class SleepGame {
 		
 		setTimeout(() => {
 			GoTo("sleepTooBad2");
-		}, 2000);
+		}, 3000);
 
 		setTimeout(() => {
 			onGameComplete();
-		}, 4000);
+		}, 4800);
 	}
 
 	warning() {

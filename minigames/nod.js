@@ -44,7 +44,7 @@ class NodGame {
             startRecording("timelapse");
             this.setTargetDirection(this.instructions.pop());
             GoTo("nodGame");
-        }, 5000);
+        }, 8000);
     }
 
     end() {
@@ -63,7 +63,7 @@ class NodGame {
 
         setTimeout(() => {
             onGameComplete();
-        }, 3000);
+        }, 4000);
     }
 
     loop(result) {
