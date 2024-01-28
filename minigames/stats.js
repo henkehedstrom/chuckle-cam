@@ -26,7 +26,7 @@ class Stats {
         header.innerText = "You managed to finish the game in " +  this.time + " seconds.";
 
         let sleepHeader = document.getElementById("sleepHeader");
-        sleepHeader.innerText = "The longest time you had your eyes closed was: " + sleep.longestClosedEyes + " seconds.";
+        sleepHeader.innerText = "The longest time you had your eyes closed was: " + sleep.longestClosedEyes / 10.0 + " seconds.";
 
         this.showEmotionStat("happy");
         this.showEmotionStat("sad");

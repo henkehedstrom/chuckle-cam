@@ -14,7 +14,7 @@ class SleepGame {
 	}
 
 	playDontLook() {
-		playSound(`dontlook${Math.round(Math.random() * 3)+1}.opus`);
+		playSound(`dontlook${Math.round(Math.random() * 4)+1}.opus`);
 	}
 
 	start() {
@@ -27,8 +27,7 @@ class SleepGame {
 
 		setTimeout(() => {
 			GoTo("sleepStart3");
-			playSound("relax.opus");
-
+			playSound(`relax${Math.round(Math.random())+1}.opus`);
 		}, 5000);
 
 		setTimeout(() => {

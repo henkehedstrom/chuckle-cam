@@ -14,22 +14,22 @@ class NodGame {
         switch (dir) {
             case "up":
                 this.text.innerText = "Look up!";
-                playSound("up.opus");
+                playSound(`up${Math.round(Math.random())+1}.opus`);
                 break;
 
             case "down":
                 this.text.innerText = "Look down!";
-                playSound("down.opus");
+                playSound(`down${Math.round(Math.random())+1}.opus`);
                 break;
 
             case "left":
                 this.text.innerText = "Look to the left!";
-                playSound("left.opus");
+                playSound(`left${Math.round(Math.random())+1}.opus`);
                 break;
 
             case "right":
                 this.text.innerText = "Look to the right!";
-                playSound("right.opus");
+                playSound(`right${Math.round(Math.random())+1}.opus`);
                 break;
         }
     }
@@ -83,7 +83,7 @@ class NodGame {
         }
 
         if (result.face.length === 0 && !this.hasGivenTip) {
-            playSound("toofar.opus");
+            playSound(`tooFar${Math.round(Math.random())+1}.opus`);
             this.hasGivenTip = true;
         }
 
