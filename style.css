@@ -240,3 +240,31 @@ body {
 	border-color: #BBBAB4 #C7C7BF #E5E4DF #C7C7BF;
 	box-shadow:  0 -1px 1px rgba(0,0,0,.1), 0 1px 1px 1px rgba(255,255,255,.7);
 }
+
+.space {
+	width: 25px;
+}
+.bounce-box{
+  display: flex; 
+}
+.bounce-box span{
+  position: relative;
+  top: 20px;
+  display: inline-block;
+  animation: bounce 0.3s ease infinite alternate;
+}
+@keyframes bounce{
+  100%{
+    top: -20px;
+    text-shadow: 0 1px #ccc, 
+                 0 2px #ccc, 
+                 0 3px #ccc, 
+                 0 4px #ccc, 
+                 0 5px #ccc,
+                 0 6px #ccc, 
+                 0 7px #ccc, 
+                 0 8px #ccc, 
+                 0 9px #ccc, 
+                 0 50px 25px rgba(0, 0, 0, 0.2);
+  }
+}
