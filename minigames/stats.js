@@ -163,6 +163,9 @@ class Stats {
 			slides.goto("statsEnd");
 
 			onGameComplete();
+            setTimeout(() => {
+                document.location.reload();
+            }, 15000);
 		}, 2000);
 	}
 }
