@@ -39,7 +39,7 @@ class EmotionGame {
 			this.canvasOwner.appendChild(outputCanvas);
 			this.canvasOwner.removeChild(this.placeholder)
             this.changeState(1)
-        }, 12000);
+        }, 9000);
     }
 
 

@@ -17,7 +17,10 @@ class Intro {
 		this.playerName.value = "";
 
 		this.startButton = document.querySelector("#introButton");
-		this.startButton.onclick = (e) => {this.end();}
+		this.startButton.onclick = (e) => {
+			this.end();
+			this.startButton.disabled = true;
+		}
 	}
 	start() {
 		document.querySelector("#consent").checked = true;
