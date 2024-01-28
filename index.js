@@ -1,7 +1,7 @@
 let human;
 let slides;
 let outputCanvas;
-let drawDebug = true;
+let drawDebug = false;
 let onresult;
 let playerName = "Unknown name";
 let emote = new EmotionGame()
