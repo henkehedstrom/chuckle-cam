@@ -56,6 +56,10 @@ body {
 	width: 500px;
 	font-size: 40px;
 }
+#nodEnd {
+	width: 800px;
+	font-size: 46px;
+}
 #emoStart {
 	width: 1300px;
 	font-size: 70px;
@@ -70,6 +74,34 @@ body {
 }
 #emoCounter::part(text) {
 	display: none;
+}
+
+#statsEmotionsStart {
+	font-size: 32px;
+	font-family: "Rock Salt";
+}
+
+#happiestEmotion {
+	font-size: 32px;
+	font-family: "Luckiest Guy";
+	color: yellow;
+}
+
+#saddestEmotion {
+	font-size: 32px;
+	font-family: "Merienda";
+	color: lightblue;
+}
+
+#angriestEmotion {
+	font-size: 32px;
+	font-family: "Creepster";
+	color: red;
+}
+
+#statsTimelapse {
+	font-size: 32px;
+	font-family: "Rock Salt";
 }
 
 .happiness {
