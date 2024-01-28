@@ -25,6 +25,9 @@ class Stats {
         let header = document.getElementById("timerHeader");
         header.innerText = "You managed to finish the game in " +  this.time + " seconds.";
 
+        let sleepHeader = document.getElementById("sleepHeader");
+        sleepHeader.innerText = "The longest time you had your eyes closed was: " + sleep.longestClosedEyes + " seconds.";
+
         this.showEmotionStat("happy");
         this.showEmotionStat("sad");
         this.showEmotionStat("angry");
@@ -140,6 +143,14 @@ class Stats {
     showTimer()
     {
         slides.goto("timer");
+        setTimeout(() => {
+			this.showSleepTime();
+		}, 6000);
+    }
+
+    showSleepTime()
+    {
+        slides.goto("sleepTime");
         setTimeout(() => {
 			this.end();
 		}, 6000);

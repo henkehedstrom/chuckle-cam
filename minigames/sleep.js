@@ -10,6 +10,7 @@ class SleepGame {
 		this.canvas = document.querySelector("#sleepGameCanvas");
 		this.placeholder = document.querySelector("#sleepGameCanvas");
 		this.canvasOwner = document.querySelector("#sleepFrame");
+		this.longestClosedEyes=0;
 	}
 
 	playDontLook() {
@@ -78,7 +79,7 @@ class SleepGame {
 
 	warning() {
 		this.warnings++;
-		if (this.warnings >= 2) {
+		if (this.warnings >= 4) {
 			this.moveOn();
 			playSound("betterluck.opus");
 			return;
@@ -138,8 +139,12 @@ class SleepGame {
 		}
 
 		// 200 = 20s = WIN
-		if (this.closedEyes >= 200) {
+		if (this.closedEyes >= 150) {
 			this.hasWon = true;
+		}
+		if(this.closedEyes > this.longestClosedEyes)
+		{
+			this.longestClosedEyes = this.closedEyes;
 		}
 
 		if (this.hasWon) {

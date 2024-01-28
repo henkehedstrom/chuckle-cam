@@ -6,7 +6,8 @@ let onresult;
 let playerName = "Unknown name";
 let interval;
 let counter = 0
-let emote = new EmotionGame()
+let emote = new EmotionGame();
+let sleep = new SleepGame();
 let minigames;
 
 class Intro {
@@ -140,7 +141,7 @@ window.onload = async () => {
 		new Intro(),
 		new NodGame(),
 		emote,
-		new SleepGame(),
+		sleep,
 		new Stats()
 	]
 
