@@ -39,7 +39,6 @@ class EmotionGame {
 			this.canvasOwner.appendChild(outputCanvas);
 			this.canvasOwner.removeChild(this.placeholder)
             this.changeState(1)
-			startRecording("timelapse");
         }, 5000);
     }
 

@@ -40,6 +40,7 @@ class NodGame {
         outputCanvas = this.canvas;
 
         setTimeout(() => {
+            startRecording("timelapse");
             this.setTargetDirection(this.instructions.pop());
             GoTo("nodGame");
         }, 5000);
