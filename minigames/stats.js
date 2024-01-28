@@ -3,6 +3,15 @@ class Stats {
         this.mouthOpen = false;
 		this.hasWon = false;
 		this.shouldBreak = false;
+
+        this.time = 0;
+        this.happyImage = "none";
+        this.sadImage = "none";
+        this.angryImage = "none";
+        this.happyScore = 0;
+        this.sadScore = 0;
+        this.angryScore = 0;
+
 	}
 
 	start() {
@@ -20,6 +29,8 @@ class Stats {
         this.showEmotionStat("sad");
         this.showEmotionStat("angry");
 
+        this.saveStatsToLocalStorage();
+
 		setTimeout(() => {
 		    setTimeout(() => {
 			let blob = getBlob("timelapse")
@@ -35,6 +46,24 @@ class Stats {
         
 	}
 
+    saveStatsToLocalStorage()
+    {
+        let saveString = "";
+        
+        saveString += this.happyImage + ";";
+        saveString += this.happyScore + ";";
+
+        saveString += this.sadImage + ";";
+        saveString += this.sadScore + ";";
+
+        saveString+= this.angryImage + ";";
+        saveString+= this.angryScore + ";";
+
+        saveString+= this.time;
+
+        localStorage.setItem(playerName,saveString);
+    }
+
     showEmotionStat(emotion)
     {
         let strong = "This was your strongest emotion overall!"
@@ -46,12 +75,18 @@ class Stats {
         switch(emotion)
         {
             case "happy":
+                this.happyScore = emote.maxEmotionScores[emotion];
+                this.happyImage = image.src;
                 label.textContent = "This was your happiest state! You had a happiness score of: " +  emote.maxEmotionScores[emotion];
                 break;
             case "sad":
+                this.sadScore = emote.maxEmotionScores[emotion];
+                this.sadImage = image.src;
                 label.textContent = "This was your saddest state! You had a sadness score of: " +  emote.maxEmotionScores[emotion];
                 break;
             case "angry":
+                this.angryScore = emote.maxEmotionScores[emotion];
+                this.angryImage = image.src;
                 label.textContent = "This was your angriest state! You had a angriness score of: " +  emote.maxEmotionScores[emotion];
                 break;
         }
