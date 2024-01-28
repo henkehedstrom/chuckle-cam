@@ -107,6 +107,8 @@ class Stats {
 	    video.onended = (e) => {
 		    this.showStatsStart();
 	    };
+
+        document.querySelector("#timelapseDownload").href = url;
     }
 
     showStatsStart()
