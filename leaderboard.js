@@ -11,13 +11,14 @@ window.onload = async () => {
 
 function addUser(userInfo,name)
 {
-    const td = document.createElement("td");
-    td.innerHTML = name;
-    leaderboard.appendChild(td);
+    addText(name);
+   
 
 
     const data = userInfo.split(';');
     addImage(data[0] + ";" + data[1]);
+    addText(data[2]);
+
 
 
 
@@ -34,5 +35,7 @@ function addImage(imageData)
 
 function addText(textData)
 {
-
+    const td = document.createElement("td");
+    td.innerHTML = textData;
+    leaderboard.appendChild(td);
 }
