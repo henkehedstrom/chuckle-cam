@@ -87,6 +87,16 @@ body {
 	color: red;
 }
 
+.webcam {
+	font-family: "Creepster";
+	color: greenyellow;
+}
+
+.fancyName {
+	font-family: "Special Elite";
+	color: mediumpurple;
+}
+
 #emoEnd {
 	width: 400px;
 	font-size: 40px;
