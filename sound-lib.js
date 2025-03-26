@@ -10,7 +10,7 @@ function playSound(fileName, volume) {
 
 	var audio = soundDict[fileName];
 	if (audio == null) {
-		soundDict[fileName] = new Audio("/sounds/" + fileName);
+		soundDict[fileName] = new Audio("sounds/" + fileName);
 		audio = soundDict[fileName];
 	}
 	if (typeof volume === Number) {
